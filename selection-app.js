@@ -196,3 +196,36 @@ function openInsightModal(asin) {
 function closeInsightModal() {
     document.getElementById('insightModal').style.display = 'none';
 }
+
+function openPresetModal(mode) {
+    const modal = document.getElementById('presetModal');
+    const title = document.getElementById('presetModalTitle');
+    if (mode === 'save') {
+        title.innerHTML = '<i class="bi bi-save" style="color:var(--primary);"></i> 保存当前筛选为方案';
+    } else {
+        title.innerHTML = '<i class="bi bi-bookmark-star" style="color:var(--primary);"></i> 新建筛选方案';
+    }
+    modal.classList.add('show');
+    document.body.style.overflow = 'hidden';
+}
+
+function closePresetModal() {
+    document.getElementById('presetModal').classList.remove('show');
+    document.body.style.overflow = '';
+}
+
+function savePreset() {
+    const name = document.getElementById('presetName').value.trim();
+    if (!name) { alert('请输入方案名称'); return; }
+    const visibility = document.querySelector('input[name="presetVisibility"]:checked').value;
+    const labels = { private: '我的', team: '组共享', global: '系统' };
+    const tagContainer = document.querySelector('.ant-card-body');
+    const tag = document.createElement('span');
+    tag.className = 'ant-tag';
+    tag.onclick = function() { selectPreset(this); };
+    tag.textContent = name + '（' + labels[visibility] + '）';
+    tagContainer.appendChild(tag);
+    closePresetModal();
+    document.getElementById('presetName').value = '';
+    document.getElementById('presetDesc').value = '';
+}

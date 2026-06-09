@@ -206,7 +206,7 @@
         <div class="ant-card">
             <div class="ant-card-head">
                 <span class="ant-card-head-title"><i class="bi bi-bookmark-star"></i> 筛选方案</span>
-                <button class="ant-btn ant-btn-sm"><i class="bi bi-plus"></i> 新建</button>
+                <button class="ant-btn ant-btn-sm" onclick="openPresetModal('create')"><i class="bi bi-plus"></i> 新建</button>
             </div>
             <div class="ant-card-body" style="padding:16px 24px;">
                 <span class="ant-tag ant-tag-active" onclick="selectPreset(this)">BSR增长快（系统）</span>
@@ -224,7 +224,7 @@
                 <span class="ant-card-head-title"><i class="bi bi-funnel"></i> 筛选条件</span>
                 <div style="display:flex;gap:8px;">
                     <button class="ant-btn ant-btn-sm" onclick="resetFilters()"><i class="bi bi-arrow-counterclockwise"></i> 重置</button>
-                    <button class="ant-btn ant-btn-sm"><i class="bi bi-save"></i> 保存方案</button>
+                    <button class="ant-btn ant-btn-sm" onclick="openPresetModal('save')"><i class="bi bi-save"></i> 保存方案</button>
                 </div>
             </div>
             <div class="ant-card-body">
@@ -1141,9 +1141,18 @@
             <button class="modal-close" onclick="closeAnomalyModal()">&times;</button>
         </div>
         <div class="modal-body" style="padding:0;">
-            <div style="padding:14px 24px;background:#fffbe6;display:flex;align-items:center;gap:12px;font-size:13px;border-bottom:1px solid var(--border);">
-                <i class="bi bi-info-circle" style="color:var(--warning);font-size:16px;"></i>
-                <span>海外仓时效优势：我司上架 <strong style="color:var(--success);">2-3天</strong> vs 竞品中国发FBA <strong style="color:var(--error);">25-35天</strong>，窗口期可达 <strong>20-30天</strong></span>
+            <div style="padding:14px 24px;background:#fffbe6;font-size:12px;border-bottom:1px solid var(--border);">
+                <div style="display:flex;align-items:center;gap:8px;margin-bottom:8px;font-size:13px;font-weight:500;"><i class="bi bi-info-circle" style="color:var(--warning);font-size:16px;"></i> 异动响应策略</div>
+                <div style="display:flex;gap:16px;">
+                    <div style="flex:1;background:#f6ffed;border-radius:6px;padding:10px 12px;border:1px solid #b7eb8f;">
+                        <div style="font-weight:600;color:#389e0d;margin-bottom:4px;"><i class="bi bi-box-seam"></i> 路径A：海外仓有相似品</div>
+                        <div style="color:var(--text);">以图搜图匹配我司各国海外仓库存 → 有相似品+有库存 → <strong>发起运营工单</strong>，直接刊登到该类目</div>
+                    </div>
+                    <div style="flex:1;background:#e6f4ff;border-radius:6px;padding:10px 12px;border:1px solid #91caff;">
+                        <div style="font-weight:600;color:#0958d9;margin-bottom:4px;"><i class="bi bi-cart-plus"></i> 路径B：海外仓无相似品</div>
+                        <div style="color:var(--text);">以图搜图无匹配 → <strong>发起选品工单</strong>，采购30天+海运到仓60天=90天窗口期（FBM模式先行）</div>
+                    </div>
+                </div>
             </div>
             <div style="padding:14px 24px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--border);">
                 <div style="display:flex;gap:10px;">
@@ -1173,8 +1182,8 @@
                             <td><strong>420</strong>件/天</td>
                             <td style="color:var(--error);font-weight:600;">库存归零 3天</td>
                             <td style="color:var(--primary);font-weight:600;">$58,380/天</td>
-                            <td><span style="background:#f6ffed;color:#389e0d;border:1px solid #b7eb8f;padding:2px 6px;border-radius:3px;font-size:11px;"><i class="bi bi-box-seam"></i> 美仓有货·2天上架</span></td>
-                            <td><button class="ant-btn ant-btn-sm" style="color:var(--error);border-color:var(--error);font-size:11px;"><i class="bi bi-lightning"></i> 快速开品</button></td>
+                            <td><span style="background:#f6ffed;color:#389e0d;border:1px solid #b7eb8f;padding:2px 6px;border-radius:3px;font-size:11px;"><i class="bi bi-box-seam"></i> 路径A·美东18仓有相似品</span></td>
+                            <td><button class="ant-btn ant-btn-sm" style="color:var(--success);border-color:var(--success);font-size:11px;"><i class="bi bi-megaphone"></i> 运营工单</button></td>
                         </tr>
                         <tr>
                             <td><div class="product-cell"><img src="https://m.media-amazon.com/images/I/71Gu+QFMRSL._AC_SL1500_.jpg" style="width:32px;height:32px;"><div><span style="font-weight:500;">Milwaukee 2904-20</span><div class="product-asin">B0BYM4JCK1 · BSR #567</div></div></div></td>
@@ -1183,8 +1192,8 @@
                             <td><strong>295</strong>件/天</td>
                             <td style="color:var(--warning);font-weight:600;">近7天仅83件/天</td>
                             <td style="color:var(--primary);font-weight:600;">$42,140/天</td>
-                            <td><span style="background:#f6ffed;color:#389e0d;border:1px solid #b7eb8f;padding:2px 6px;border-radius:3px;font-size:11px;"><i class="bi bi-box-seam"></i> 美仓有货·2天上架</span></td>
-                            <td><button class="ant-btn ant-btn-sm" style="color:var(--error);border-color:var(--error);font-size:11px;"><i class="bi bi-lightning"></i> 快速开品</button></td>
+                            <td><span style="background:#f6ffed;color:#389e0d;border:1px solid #b7eb8f;padding:2px 6px;border-radius:3px;font-size:11px;"><i class="bi bi-box-seam"></i> 路径A·美西仓有相似品</span></td>
+                            <td><button class="ant-btn ant-btn-sm" style="color:var(--success);border-color:var(--success);font-size:11px;"><i class="bi bi-megaphone"></i> 运营工单</button></td>
                         </tr>
                         <tr>
                             <td><div class="product-cell"><img src="https://m.media-amazon.com/images/I/61HaSLguSxL._AC_SL1500_.jpg" style="width:32px;height:32px;"><div><span style="font-weight:500;">Bosch GSR12V-300</span><div class="product-asin">B0BN8MZLKR · BSR #2847</div></div></div></td>
@@ -1193,8 +1202,8 @@
                             <td><strong>70</strong>件/天</td>
                             <td style="color:var(--text-secondary);">listing不可售 5天</td>
                             <td style="color:var(--primary);font-weight:600;">$10,430/天</td>
-                            <td><span style="background:#fff7e6;color:#d46b08;border:1px solid #ffd591;padding:2px 6px;border-radius:3px;font-size:11px;"><i class="bi bi-truck"></i> 英仓有货·调拨5天</span></td>
-                            <td><button class="ant-btn ant-btn-sm" style="color:var(--error);border-color:var(--error);font-size:11px;"><i class="bi bi-lightning"></i> 快速开品</button></td>
+                            <td><span style="background:#e6f4ff;color:#0958d9;border:1px solid #91caff;padding:2px 6px;border-radius:3px;font-size:11px;"><i class="bi bi-cart-plus"></i> 路径B·无相似品·90天窗口</span></td>
+                            <td><button class="ant-btn ant-btn-sm" style="color:var(--primary);border-color:var(--primary);font-size:11px;"><i class="bi bi-plus-circle"></i> 选品工单</button></td>
                         </tr>
                         <tr>
                             <td><div class="product-cell"><img src="https://m.media-amazon.com/images/I/71bR5KmJMDL._AC_SL1500_.jpg" style="width:32px;height:32px;"><div><span style="font-weight:500;">Makita XPH14Z</span><div class="product-asin">B09XXXX · BSR #1890</div></div></div></td>
@@ -1203,8 +1212,8 @@
                             <td><strong>115</strong>件/天</td>
                             <td style="color:var(--warning);font-weight:600;">近7天仅48件/天</td>
                             <td style="color:var(--primary);font-weight:600;">$10,653/天</td>
-                            <td><span style="background:#f6ffed;color:#389e0d;border:1px solid #b7eb8f;padding:2px 6px;border-radius:3px;font-size:11px;"><i class="bi bi-box-seam"></i> 美仓有货·2天上架</span></td>
-                            <td><button class="ant-btn ant-btn-sm" style="color:var(--error);border-color:var(--error);font-size:11px;"><i class="bi bi-lightning"></i> 快速开品</button></td>
+                            <td><span style="background:#f6ffed;color:#389e0d;border:1px solid #b7eb8f;padding:2px 6px;border-radius:3px;font-size:11px;"><i class="bi bi-box-seam"></i> 路径A·英仓有相似品</span></td>
+                            <td><button class="ant-btn ant-btn-sm" style="color:var(--success);border-color:var(--success);font-size:11px;"><i class="bi bi-megaphone"></i> 运营工单</button></td>
                         </tr>
                         <tr>
                             <td><div class="product-cell"><img src="https://m.media-amazon.com/images/I/71Vy3K4MjQL._AC_SL1500_.jpg" style="width:32px;height:32px;"><div><span style="font-weight:500;">CRAFTSMAN V20 Drill</span><div class="product-asin">B0CXXXXX · BSR #3200</div></div></div></td>
@@ -1213,8 +1222,8 @@
                             <td><strong>85</strong>件/天</td>
                             <td style="color:var(--error);font-weight:600;">库存归零 1天</td>
                             <td style="color:var(--primary);font-weight:600;">$5,100/天</td>
-                            <td><span style="background:#e6f4ff;color:#0958d9;border:1px solid #91caff;padding:2px 6px;border-radius:3px;font-size:11px;"><i class="bi bi-search"></i> 需寻源·预计15天</span></td>
-                            <td><button class="ant-btn ant-btn-sm" style="color:var(--primary);border-color:var(--primary);font-size:11px;"><i class="bi bi-search"></i> 寻源</button></td>
+                            <td><span style="background:#e6f4ff;color:#0958d9;border:1px solid #91caff;padding:2px 6px;border-radius:3px;font-size:11px;"><i class="bi bi-cart-plus"></i> 路径B·无相似品·90天窗口</span></td>
+                            <td><button class="ant-btn ant-btn-sm" style="color:var(--primary);border-color:var(--primary);font-size:11px;"><i class="bi bi-plus-circle"></i> 选品工单</button></td>
                         </tr>
                     </tbody>
                 </table>
@@ -1224,7 +1233,7 @@
             <span style="font-size:12px;color:var(--text-secondary);">监控范围：4 个核心类目 Top50 竞品 · 每6小时检测</span>
             <div style="display:flex;gap:8px;">
                 <button class="ant-btn" onclick="closeAnomalyModal()">关闭</button>
-                <button class="ant-btn ant-btn-primary"><i class="bi bi-check2-all"></i> 批量快速开品</button>
+                <button class="ant-btn ant-btn-primary"><i class="bi bi-check2-all"></i> 批量生成工单</button>
             </div>
         </div>
     </div>
@@ -1456,6 +1465,51 @@
             </div>
             <div style="margin-top:12px;padding:10px;background:#f0f0f0;border-radius:6px;font-size:11px;color:#666;">
                 <i class="bi bi-clock"></i> 预计窗口期：90天 | 目标上架：2026年9月 | 赶秋季尾单+圣诞测试期
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Preset Modal: 新建/保存筛选方案 -->
+<div class="modal-overlay" id="presetModal" onclick="if(event.target===this)closePresetModal()">
+    <div class="modal-box" style="max-width:480px;">
+        <div class="modal-header" style="padding:16px 24px;">
+            <h3 id="presetModalTitle" style="font-size:16px;margin:0;"><i class="bi bi-bookmark-star" style="color:var(--primary);"></i> 新建筛选方案</h3>
+            <button class="modal-close" onclick="closePresetModal()">&times;</button>
+        </div>
+        <div class="modal-body" style="padding:24px;">
+            <div style="margin-bottom:16px;">
+                <label style="font-size:12px;font-weight:500;display:block;margin-bottom:6px;">方案名称</label>
+                <input class="ant-input" id="presetName" type="text" placeholder="如：汽配蓝海-高利润低竞争" style="width:100%;">
+            </div>
+            <div style="margin-bottom:16px;">
+                <label style="font-size:12px;font-weight:500;display:block;margin-bottom:6px;">方案描述（选填）</label>
+                <textarea class="ant-input" id="presetDesc" placeholder="简要说明筛选逻辑和适用场景" style="width:100%;height:60px;resize:vertical;"></textarea>
+            </div>
+            <div style="margin-bottom:16px;">
+                <label style="font-size:12px;font-weight:500;display:block;margin-bottom:6px;">可见范围</label>
+                <div style="display:flex;gap:12px;">
+                    <label style="font-size:12px;display:flex;align-items:center;gap:4px;cursor:pointer;"><input type="radio" name="presetVisibility" value="private" checked> 仅自己</label>
+                    <label style="font-size:12px;display:flex;align-items:center;gap:4px;cursor:pointer;"><input type="radio" name="presetVisibility" value="team"> 团队共享</label>
+                    <label style="font-size:12px;display:flex;align-items:center;gap:4px;cursor:pointer;"><input type="radio" name="presetVisibility" value="global"> 全局可见</label>
+                </div>
+                <div style="font-size:11px;color:var(--text-secondary);margin-top:6px;">团队共享：同组成员可使用；全局可见：所有选品人员可使用</div>
+            </div>
+            <div style="margin-bottom:20px;">
+                <label style="font-size:12px;font-weight:500;display:block;margin-bottom:6px;">包含筛选条件</label>
+                <div id="presetConditions" style="background:var(--bg-layout);border-radius:6px;padding:12px;font-size:12px;color:var(--text-secondary);">
+                    <div style="display:flex;flex-wrap:wrap;gap:6px;">
+                        <span style="background:#fff;border:1px solid var(--border);padding:2px 8px;border-radius:3px;">站点: US</span>
+                        <span style="background:#fff;border:1px solid var(--border);padding:2px 8px;border-radius:3px;">类目: Power Drills</span>
+                        <span style="background:#fff;border:1px solid var(--border);padding:2px 8px;border-radius:3px;">BSR: 1-5000</span>
+                        <span style="background:#fff;border:1px solid var(--border);padding:2px 8px;border-radius:3px;">月销>100</span>
+                    </div>
+                </div>
+                <div style="font-size:11px;color:var(--text-secondary);margin-top:4px;">自动读取当前筛选区已设置的条件</div>
+            </div>
+            <div style="display:flex;justify-content:flex-end;gap:8px;padding-top:12px;border-top:1px solid var(--border);">
+                <button class="ant-btn" onclick="closePresetModal()">取消</button>
+                <button class="ant-btn ant-btn-primary" onclick="savePreset()"><i class="bi bi-check-circle"></i> 保存方案</button>
             </div>
         </div>
     </div>
