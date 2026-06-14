@@ -172,6 +172,8 @@
             <div class="menu-item" onclick="showPage('ai-rules')"><i class="bi bi-robot"></i> AI自动选品</div>
             <div class="menu-item" onclick="showPage('sourcing')"><i class="bi bi-shop"></i> 货源寻源</div>
             <div class="menu-item" onclick="showPage('review-mining')"><i class="bi bi-binoculars"></i> 竞品洞察</div>
+            <div class="menu-item" onclick="showPage('painpoint')"><i class="bi bi-chat-square-text"></i> 痛点挖掘</div>
+            <div class="menu-item" onclick="showPage('trend-radar')"><i class="bi bi-broadcast"></i> 趋势雷达</div>
             <div class="menu-item"><i class="bi bi-gear"></i> 系统设置</div>
         </div>
     </div>
@@ -202,20 +204,15 @@
             <div class="stat-item" style="cursor:pointer;position:relative;" onclick="openAnomalyModal()"><div class="stat-value" style="color:var(--error);">17</div><div class="stat-label">竞品异动机会 <i class="bi bi-lightning-charge-fill" style="color:var(--error);font-size:10px;"></i> <i class="bi bi-question-circle" style="cursor:help;color:var(--text-secondary);" title="监控类目Top竞品近期销量骤降/断货/下架的数量，点击查看详情"></i></div><span style="position:absolute;top:8px;right:8px;font-size:10px;color:var(--primary);">点击查看 →</span></div>
         </div>
 
-        <!-- Presets -->
-        <div class="ant-card">
-            <div class="ant-card-head">
-                <span class="ant-card-head-title"><i class="bi bi-bookmark-star"></i> 筛选方案</span>
-                <button class="ant-btn ant-btn-sm" onclick="openPresetModal('create')"><i class="bi bi-plus"></i> 新建</button>
-            </div>
-            <div class="ant-card-body" style="padding:16px 24px;">
-                <span class="ant-tag ant-tag-active" onclick="selectPreset(this)">BSR增长快（系统）</span>
-                <span class="ant-tag" onclick="selectPreset(this)">精品高客单（系统）</span>
-                <span class="ant-tag" onclick="selectPreset(this)">压库存市场（系统）</span>
-                <span class="ant-tag" onclick="selectPreset(this)">新品低竞争（我的）</span>
-                <span class="ant-tag" onclick="selectPreset(this)">汽配蓝海（我的）</span>
-                <span class="ant-tag" onclick="selectPreset(this)">工业科学高利润（组长共享）</span>
-            </div>
+        <!-- My Presets (我的模式) -->
+        <div style="display:flex;align-items:center;gap:12px;margin-bottom:16px;">
+            <span style="font-size:13px;font-weight:500;">我的模式</span>
+            <button class="ant-btn ant-btn-sm" onclick="openPresetModal('create')" style="background:#fa541c;color:#fff;border-color:#fa541c;"><i class="bi bi-gear"></i> 管理</button>
+            <span class="ant-tag" onclick="selectPreset(this)">BSR增长快（系统）</span>
+            <span class="ant-tag" onclick="selectPreset(this)">精品高客单（系统）</span>
+            <span class="ant-tag" onclick="selectPreset(this)">新品低竞争（我的）</span>
+            <span class="ant-tag" onclick="selectPreset(this)">汽配蓝海（我的）</span>
+            <span class="ant-tag" onclick="selectPreset(this)">工业科学高利润（组长共享）</span>
         </div>
 
         <!-- Filters -->
@@ -227,59 +224,127 @@
                     <button class="ant-btn ant-btn-sm" onclick="openPresetModal('save')"><i class="bi bi-save"></i> 保存方案</button>
                 </div>
             </div>
-            <div class="ant-card-body">
-                <!-- Row 1 -->
-                <div class="filter-grid" style="margin-bottom:16px;">
-                    <div class="filter-item">
-                        <label>站点</label>
-                        <select class="ant-select"><option>美国 (US)</option><option>英国 (UK)</option><option>德国 (DE)</option><option>法国 (FR)</option><option>意大利 (IT)</option><option>西班牙 (ES)</option></select>
+            <div class="ant-card-body" style="padding:20px 24px;">
+                <!-- Top: 站点 + 月份 -->
+                <div style="margin-bottom:16px;">
+                    <div style="display:flex;align-items:center;gap:12px;margin-bottom:12px;">
+                        <span style="font-size:13px;font-weight:500;white-space:nowrap;">选择站点</span>
+                        <div style="display:flex;gap:6px;flex-wrap:wrap;">
+                            <label class="ant-tag ant-tag-active" style="cursor:pointer;"><input type="radio" name="site" checked hidden>美国站</label>
+                            <label class="ant-tag" style="cursor:pointer;"><input type="radio" name="site" hidden>日本站</label>
+                            <label class="ant-tag" style="cursor:pointer;"><input type="radio" name="site" hidden>英国站</label>
+                            <label class="ant-tag" style="cursor:pointer;"><input type="radio" name="site" hidden>德国站</label>
+                            <label class="ant-tag" style="cursor:pointer;"><input type="radio" name="site" hidden>法国站</label>
+                            <label class="ant-tag" style="cursor:pointer;"><input type="radio" name="site" hidden>意大利</label>
+                            <label class="ant-tag" style="cursor:pointer;"><input type="radio" name="site" hidden>西班牙</label>
+                            <label class="ant-tag" style="cursor:pointer;"><input type="radio" name="site" hidden>加拿大</label>
+                            <label class="ant-tag" style="cursor:pointer;"><input type="radio" name="site" hidden>印度站</label>
+                            <label class="ant-tag" style="cursor:pointer;"><input type="radio" name="site" hidden>墨西哥</label>
+                        </div>
                     </div>
-                    <div class="filter-item" style="grid-column:span 2;">
-                        <label>类目</label>
-                        <select class="ant-select"><option>Industrial & Scientific > Power & Hand Tools > Power Drills</option><option>Automotive > Replacement Parts > Brake System</option><option>Home & Kitchen > Kitchen & Dining > Storage</option><option>Sports & Outdoors > Exercise & Fitness > Strength Training</option></select>
+                    <div style="display:flex;align-items:center;gap:12px;margin-bottom:12px;">
+                        <span style="font-size:13px;font-weight:500;white-space:nowrap;">选择月份</span>
+                        <div style="display:flex;gap:6px;flex-wrap:wrap;">
+                            <label class="ant-tag ant-tag-active" style="cursor:pointer;">最近30天</label>
+                            <label class="ant-tag" style="cursor:pointer;">2026-05</label>
+                            <label class="ant-tag" style="cursor:pointer;">2026-04</label>
+                            <label class="ant-tag" style="cursor:pointer;">2026-03</label>
+                            <label class="ant-tag" style="cursor:pointer;">2026-02</label>
+                            <label class="ant-tag" style="cursor:pointer;">2026-01</label>
+                            <label class="ant-tag" style="cursor:pointer;">2025-12</label>
+                            <label class="ant-tag" style="cursor:pointer;">2025-11</label>
+                            <label class="ant-tag" style="cursor:pointer;">2025-10</label>
+                            <label class="ant-tag" style="cursor:pointer;">2025-09</label>
+                            <label class="ant-tag" style="cursor:pointer;">2025-08</label>
+                            <label class="ant-tag" style="cursor:pointer;">2025-07</label>
+                        </div>
                     </div>
-                    <div class="filter-item">
-                        <label>数据周期</label>
-                        <select class="ant-select"><option>最近30天</option><option>最近90天</option><option>最近6个月</option><option>最近12个月</option></select>
+                    <div style="display:flex;align-items:center;gap:12px;">
+                        <span style="font-size:13px;font-weight:500;white-space:nowrap;">选择类目</span>
+                        <select class="ant-select" style="flex:1;max-width:400px;"><option>选择一个或多个类目和子类目</option><option>Industrial & Scientific > Power & Hand Tools > Power Drills</option><option>Automotive > Replacement Parts > Brake System</option><option>Home & Kitchen > Kitchen & Dining > Storage</option><option>Patio, Lawn & Garden > Patio Furniture > Cushions</option><option>Sports & Outdoors > Exercise & Fitness > Strength Training</option></select>
+                        <label style="font-size:12px;display:flex;align-items:center;gap:4px;cursor:pointer;"><input type="checkbox" checked style="accent-color:var(--primary);">只看该子类目排名</label>
                     </div>
                 </div>
-                <!-- Row 2 -->
-                <div class="filter-grid" style="margin-bottom:16px;">
-                    <div class="filter-item"><label>月销量 <i class="bi bi-question-circle" style="cursor:help;color:#bfbfbf;" title="产品近30天预估销售件数，基于BSR排名和类目算法推算"></i></label><div class="range-group"><input placeholder="100" value="100"><span>~</span><input placeholder="5000" value="5000"></div></div>
-                    <div class="filter-item"><label>月销售额($) <i class="bi bi-question-circle" style="cursor:help;color:#bfbfbf;" title="月销量×售价，反映产品的市场规模"></i></label><div class="range-group"><input placeholder="5000" value="5000"><span>~</span><input placeholder="不限"></div></div>
-                    <div class="filter-item"><label>售价($) <i class="bi bi-question-circle" style="cursor:help;color:#bfbfbf;" title="产品当前售价（美元），含优惠券折扣后的实际价格"></i></label><div class="range-group"><input placeholder="15" value="15"><span>~</span><input placeholder="200" value="200"></div></div>
-                    <div class="filter-item"><label>BSR排名 <i class="bi bi-question-circle" style="cursor:help;color:#bfbfbf;" title="Best Sellers Rank，亚马逊大类目销量排名，数字越小销量越好"></i></label><div class="range-group"><input placeholder="不限"><span>~</span><input placeholder="50000" value="50000"></div></div>
+                <!-- Toggle Filter -->
+                <div id="filterToggleBar" style="padding:8px 0;text-align:center;border-top:1px solid var(--border);margin-top:4px;cursor:pointer;user-select:none;" onclick="toggleFilters()">
+                    <span style="font-size:12px;color:var(--primary);"><i class="bi bi-chevron-up" id="filterToggleIcon"></i> <span id="filterToggleText">隐藏筛选项</span></span>
                 </div>
-                <!-- Row 3 -->
-                <div class="filter-grid" style="margin-bottom:16px;">
-                    <div class="filter-item"><label>Reviews数 <i class="bi bi-question-circle" style="cursor:help;color:#bfbfbf;" title="产品累计评论数量，反映市场成熟度和进入门槛。越少越容易追赶"></i></label><div class="range-group"><input placeholder="不限"><span>~</span><input placeholder="500" value="500"></div></div>
-                    <div class="filter-item"><label>评分(Rating) <i class="bi bi-question-circle" style="cursor:help;color:#bfbfbf;" title="产品平均星级评分(1-5)，低于4.0的产品通常有质量或listing问题"></i></label><div class="range-group"><input placeholder="3.5" value="3.5"><span>~</span><input placeholder="5"></div></div>
-                    <div class="filter-item"><label>销量增长率(%) <i class="bi bi-question-circle" style="cursor:help;color:#bfbfbf;" title="近30天销量相比前30天的增长百分比，正值表示增长，负值表示下滑"></i></label><div class="range-group"><input placeholder="10" value="10"><span>~</span><input placeholder="不限"></div></div>
-                    <div class="filter-item"><label>上架时间 <i class="bi bi-question-circle" style="cursor:help;color:#bfbfbf;" title="产品首次在亚马逊上架的时间，新品（<12个月）通常竞争较小"></i></label><select class="ant-select"><option>不限</option><option>近3个月</option><option>近6个月</option><option>近12个月</option><option>近24个月</option></select></div>
+                <!-- 3-Column Filter Body -->
+                <div id="filterBody" style="display:grid;grid-template-columns:1fr 1.4fr 1fr;gap:24px;padding-top:16px;">
+                    <!-- Column 1: 销售表现 -->
+                    <div>
+                        <div style="font-size:13px;font-weight:600;color:#fa541c;margin-bottom:12px;">* 销售表现</div>
+                        <div style="display:flex;flex-direction:column;gap:10px;">
+                            <div class="filter-item"><label>月销量</label><div class="range-group"><input placeholder="最小值"><span>~</span><input placeholder="最大值"></div></div>
+                            <div class="filter-item"><label>月销售额 <span style="color:#bfbfbf;">$</span></label><div class="range-group"><input placeholder="最小值"><span>~</span><input placeholder="最大值"></div></div>
+                            <div class="filter-item"><label>子体销量</label><div class="range-group"><input placeholder="最小值"><span>~</span><input placeholder="最大值"></div></div>
+                            <div class="filter-item"><label>月销量增长率 <span style="color:#bfbfbf;">%</span></label><div class="range-group"><input placeholder="最小值"><span>~</span><input placeholder="最大值"></div></div>
+                            <div class="filter-item"><label>BSR</label><div class="range-group"><input placeholder="最小值"><span>~</span><input placeholder="最大值"></div></div>
+                            <div class="filter-item"><label>小类BSR</label><div class="range-group"><input placeholder="最小值"><span>~</span><input placeholder="最大值"></div></div>
+                            <div class="filter-item"><label>BSR增长数</label><div class="range-group"><input placeholder="最小值"><span>~</span><input placeholder="最大值"></div></div>
+                            <div class="filter-item"><label>BSR增长率 <span style="color:#bfbfbf;">%</span></label><div class="range-group"><input placeholder="最小值"><span>~</span><input placeholder="最大值"></div></div>
+                            <div class="filter-item"><label>月销售额增长率 <span style="color:#bfbfbf;">%</span></label><div class="range-group"><input placeholder="最小值"><span>~</span><input placeholder="最大值"></div></div>
+                        </div>
+                    </div>
+                    <!-- Column 2: 产品信息 (two sub-columns) -->
+                    <div>
+                        <div style="font-size:13px;font-weight:600;color:#fa541c;margin-bottom:12px;">* 产品信息</div>
+                        <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px 16px;">
+                            <div class="filter-item"><label>变体数</label><div class="range-group"><input placeholder="最小值"><span>~</span><input placeholder="最大值"></div></div>
+                            <div class="filter-item"><label>价格 <span style="color:#bfbfbf;">$</span></label><div class="range-group"><input placeholder="最小值"><span>~</span><input placeholder="最大值"></div></div>
+                            <div class="filter-item"><label>Q&A</label><div class="range-group"><input placeholder="最小值"><span>~</span><input placeholder="最大值"></div></div>
+                            <div class="filter-item"><label>评分数</label><div class="range-group"><input placeholder="最小值"><span>~</span><input placeholder="最大值"></div></div>
+                            <div class="filter-item"><label>月评新增</label><div class="range-group"><input placeholder="最小值"><span>~</span><input placeholder="最大值"></div></div>
+                            <div class="filter-item"><label>评分值</label><div class="range-group"><input placeholder="最小值"><span>~</span><input placeholder="最大值"></div></div>
+                            <div class="filter-item"><label>留评率 <span style="color:#bfbfbf;">%</span></label><div class="range-group"><input placeholder="最小值"><span>~</span><input placeholder="最大值"></div></div>
+                            <div class="filter-item"><label>FBA运费 <span style="color:#bfbfbf;">$</span></label><div class="range-group"><input placeholder="最小值"><span>~</span><input placeholder="最大值"></div></div>
+                            <div class="filter-item"><label>毛利率 <span style="color:#bfbfbf;">%</span></label><div class="range-group"><input placeholder="最小值"><span>~</span><input placeholder="最大值"></div></div>
+                            <div class="filter-item"><label>上架时间</label><select class="ant-select"><option>不限</option><option value="1">近30天</option><option value="3">近3个月</option><option value="6">近半年</option><option value="12">近1年</option><option value="24">近2年</option></select></div>
+                            <div class="filter-item"><label>LQS</label><div class="range-group"><input placeholder="最小值"><span>~</span><input placeholder="最大值"></div></div>
+                            <div class="filter-item"><label>包装重量</label><div class="range-group"><input placeholder="最小值"><span>~</span><input placeholder="最大值"></div></div>
+                            <div class="filter-item"><label>包装尺寸 <i class="bi bi-question-circle" style="cursor:help;color:#bfbfbf;" title="枚举值跟随站点变化。当前显示美国站尺寸分档。"></i></label><select id="dimensionTypeSelect" class="ant-select"><option>不限</option><option value="ST/SS">小号标准尺寸</option><option value="LS">大号标准尺寸</option><option value="SO">小号大件</option><option value="MO">中号大件</option><option value="LO/LB">大号大件</option><option value="SP">特殊大件</option><option value="O">其他尺寸</option><option value="ELO">超大尺寸：0~50磅</option><option value="EL5O">超大尺寸：50~70磅</option><option value="EL7O">超大尺寸：70~150磅</option><option value="EL15O">超大尺寸：150磅以上</option></select></div>
+                            <div class="filter-item"><label>卖家运费 <span style="color:#bfbfbf;">$</span></label><div class="range-group"><input placeholder="最小值"><span>~</span><input placeholder="最大值"></div></div>
+                        </div>
+                    </div>
+                    <!-- Column 3: 竞品筛选 -->
+                    <div>
+                        <div style="font-size:13px;font-weight:600;color:#fa541c;margin-bottom:12px;">* 竞品筛选</div>
+                        <div style="display:flex;flex-direction:column;gap:10px;">
+                            <div class="filter-item"><label>卖家数量</label><div class="range-group"><input placeholder="最小值"><span>~</span><input placeholder="最大值"></div></div>
+                            <div class="filter-item"><label>卖家所在地</label><select class="ant-select"><option>不限</option><option value="CN">中国</option><option value="HK">中国香港特区</option><option value="US">美国</option><option value="JP">日本</option><option value="DE">德国</option><option value="FR">法国</option></select></div>
+                            <div class="filter-item"><label>包含品牌</label><input class="ant-input" placeholder="输入品牌，多个以英文逗号区分"></div>
+                            <div class="filter-item"><label>排除品牌</label><input class="ant-input" placeholder="输入品牌，多个以英文逗号区分"></div>
+                            <div class="filter-item"><label>包含卖家</label><input class="ant-input" placeholder="输入卖家，多个以英文逗号区分"></div>
+                            <div class="filter-item"><label>排除卖家</label><input class="ant-input" placeholder="输入卖家，多个以英文逗号区分"></div>
+                            <div class="filter-item"><label>排除关键词</label><input class="ant-input" placeholder="输入关键词，多个以英文逗号区分"></div>
+                            <div class="filter-item" style="background:#fafafa;border-radius:6px;padding:8px 10px;">
+                                <label>包含关键词</label><input class="ant-input" placeholder="输入关键词，多个以英文逗号区分" style="margin-bottom:6px;">
+                                <div style="display:flex;gap:12px;font-size:12px;"><label style="display:flex;align-items:center;gap:3px;cursor:pointer;"><input type="radio" name="kwMatch" checked style="accent-color:#fa541c;">模糊匹配</label><label style="display:flex;align-items:center;gap:3px;cursor:pointer;"><input type="radio" name="kwMatch" style="accent-color:#fa541c;">词组匹配</label><label style="display:flex;align-items:center;gap:3px;cursor:pointer;"><input type="radio" name="kwMatch" style="accent-color:#fa541c;">精准匹配</label></div>
+                            </div>
+                            <div class="filter-item"><label style="margin-bottom:4px;">配送方式</label><div style="display:flex;gap:12px;font-size:12px;"><label style="display:flex;align-items:center;gap:3px;cursor:pointer;"><input type="checkbox"> AMZ</label><label style="display:flex;align-items:center;gap:3px;cursor:pointer;"><input type="checkbox"> FBA</label><label style="display:flex;align-items:center;gap:3px;cursor:pointer;"><input type="checkbox"> FBM</label></div></div>
+                            <div class="filter-item"><label style="margin-bottom:4px;">主图视频</label><div style="display:flex;gap:12px;font-size:12px;"><label style="display:flex;align-items:center;gap:3px;cursor:pointer;"><input type="radio" name="videoFilter" checked style="accent-color:#fa541c;">不限</label><label style="display:flex;align-items:center;gap:3px;cursor:pointer;"><input type="radio" name="videoFilter" style="accent-color:#fa541c;">含视频</label><label style="display:flex;align-items:center;gap:3px;cursor:pointer;"><input type="radio" name="videoFilter" style="accent-color:#fa541c;">不含视频</label></div></div>
+                            <div class="filter-item"><label style="margin-bottom:4px;">商品标识</label><div style="display:flex;gap:10px;font-size:12px;flex-wrap:wrap;"><label style="display:flex;align-items:center;gap:3px;cursor:pointer;"><input type="checkbox"> Best Seller</label><label style="display:flex;align-items:center;gap:3px;cursor:pointer;"><input type="checkbox"> Amazon's Choice</label><label style="display:flex;align-items:center;gap:3px;cursor:pointer;"><input type="checkbox"> New Release</label><label style="display:flex;align-items:center;gap:3px;cursor:pointer;"><input type="checkbox"> A+</label><label style="display:flex;align-items:center;gap:3px;cursor:pointer;"><input type="checkbox"> 不含A+</label></div></div>
+                        </div>
+                    </div>
                 </div>
-                <!-- Row 4 -->
-                <div class="filter-grid" style="margin-bottom:16px;">
-                    <div class="filter-item"><label>配送方式 <i class="bi bi-question-circle" style="cursor:help;color:#bfbfbf;" title="FBA=亚马逊配送(有Prime标)，FBM=卖家自发货，Amazon=亚马逊自营"></i></label><select class="ant-select"><option>全部</option><option>FBA</option><option>FBM</option><option>Amazon自营</option></select></div>
-                    <div class="filter-item"><label>卖家所在地 <i class="bi bi-question-circle" style="cursor:help;color:#bfbfbf;" title="卖家注册地，中国卖家通常为跨境卖家，本土卖家为美国/欧洲本地公司"></i></label><select class="ant-select"><option>全部</option><option>中国卖家</option><option>本土卖家</option></select></div>
-                    <div class="filter-item"><label>变体数 <i class="bi bi-question-circle" style="cursor:help;color:#bfbfbf;" title="产品的颜色/尺寸等变体数量，变体多的listing通常权重更高"></i></label><div class="range-group"><input placeholder="不限"><span>~</span><input placeholder="不限"></div></div>
-                    <div class="filter-item"><label>卖家数 <i class="bi bi-question-circle" style="cursor:help;color:#bfbfbf;" title="同一listing下的跟卖卖家数量，越少竞争越小"></i></label><div class="range-group"><input placeholder="不限"><span>~</span><input placeholder="10" value="10"></div></div>
+                <!-- 内部风控 + 搜索 -->
+                <div id="filterRiskRow" style="padding-top:16px;margin-top:16px;border-top:1px dashed var(--border);display:flex;align-items:center;gap:16px;flex-wrap:wrap;">
+                    <div style="font-size:13px;font-weight:600;color:var(--text);"><i class="bi bi-shield-check" style="color:var(--success);"></i> 内部风控</div>
+                    <label style="display:inline-flex;align-items:center;gap:6px;font-size:13px;cursor:pointer;padding:4px 12px;background:#f6ffed;border:1px solid #b7eb8f;border-radius:4px;">
+                        <input type="checkbox" checked style="accent-color:var(--success);">
+                        <span>自动过滤侵权词</span>
+                        <i class="bi bi-question-circle" style="cursor:help;color:#bfbfbf;" title="匹配ERP系统「产品库-知产管理-侵权词库」的2万+条内部维护词汇，精确匹配卖家精灵返回的商品名称、关键词、子类目中的侵权词。默认开启。"></i>
+                    </label>
+                    <label style="display:inline-flex;align-items:center;gap:6px;font-size:13px;cursor:pointer;padding:4px 12px;background:#f6ffed;border:1px solid #b7eb8f;border-radius:4px;">
+                        <input type="checkbox" checked style="accent-color:var(--success);">
+                        <span>以图搜图模式：已自动过滤重复开品</span>
+                        <i class="bi bi-question-circle" style="cursor:help;color:#bfbfbf;" title="将卖家精灵返回的商品主图与ERP产品库已有SKU图片进行以图搜图比对，自动过滤已开品或高度相似的商品，避免重复开品。默认开启。"></i>
+                    </label>
+                    <span style="font-size:11px;color:var(--text-secondary);">数据源：ERP产品库 > 知产管理 > 侵权词库（20,000+词条）</span>
                 </div>
-                <!-- Row 5 -->
-                <div class="filter-grid">
-                    <div class="filter-item"><label>LQS评分 <i class="bi bi-question-circle" style="cursor:help;color:#bfbfbf;" title="Listing Quality Score，卖家精灵对listing质量的综合评分(1-5)，越低说明listing优化空间越大"></i></label><div class="range-group"><input placeholder="不限"><span>~</span><input placeholder="不限"></div></div>
-                    <div class="filter-item"><label>重量(kg) <i class="bi bi-question-circle" style="cursor:help;color:#bfbfbf;" title="产品重量，影响FBA配送费和头程运费成本"></i></label><div class="range-group"><input placeholder="不限"><span>~</span><input placeholder="不限"></div></div>
-                    <div class="filter-item"><label>是否有A+ <i class="bi bi-question-circle" style="cursor:help;color:#bfbfbf;" title="是否有A+ Content(图文详情页)，有A+的listing转化率通常高5-10%"></i></label><select class="ant-select"><option>全部</option><option>有</option><option>无</option></select></div>
-                    <div class="filter-item"><label>是否有视频 <i class="bi bi-question-circle" style="cursor:help;color:#bfbfbf;" title="listing是否包含产品视频，有视频的产品转化率平均高15-20%"></i></label><select class="ant-select"><option>全部</option><option>有</option><option>无</option></select></div>
-                </div>
-                <!-- Row 6: 合规风险 -->
-                <div class="filter-grid" style="margin-top:16px;padding-top:16px;border-top:1px dashed var(--border);">
-                    <div class="filter-item"><label><i class="bi bi-shield-exclamation" style="color:var(--error);"></i> 专利风险 <i class="bi bi-question-circle" style="cursor:help;color:#bfbfbf;" title="基于智慧芽API外观专利检索结果，判断产品是否存在外观设计侵权风险。高风险=有高度相似有效专利，中风险=有相似专利需人工复核"></i></label><select class="ant-select"><option>全部</option><option>仅低风险</option><option>排除高风险</option><option>仅高风险(排查用)</option></select></div>
-                    <div class="filter-item"><label><i class="bi bi-exclamation-triangle" style="color:var(--warning);"></i> 违禁风险 <i class="bi bi-question-circle" style="cursor:help;color:#bfbfbf;" title="匹配内部违禁品数据库，包含平台禁售、海关管制、知产黑名单等。命中=产品或品牌在违禁库中有记录"></i></label><select class="ant-select"><option>全部</option><option>排除命中</option><option>仅命中(排查用)</option></select></div>
-                    <div class="filter-item"><label><i class="bi bi-patch-check" style="color:var(--primary);"></i> 认证需求 <i class="bi bi-question-circle" style="cursor:help;color:#bfbfbf;" title="根据产品类目和目标站点自动匹配所需认证（UL/CE/FCC/REACH/RoHS等），无认证=高门槛品类"></i></label><select class="ant-select"><option>全部</option><option>无需认证</option><option>需1-2项认证</option><option>需3项+认证</option></select></div>
-                    <div class="filter-item"><label><i class="bi bi-check-circle" style="color:var(--success);"></i> 我司已有认证 <i class="bi bi-question-circle" style="cursor:help;color:#bfbfbf;" title="筛选公司已持有对应认证的品类，可直接开品无需额外认证成本"></i></label><select class="ant-select"><option>全部</option><option>已覆盖</option><option>部分覆盖</option><option>未覆盖</option></select></div>
-                </div>
-                <div style="text-align:center;margin-top:20px;">
-                    <button class="ant-btn ant-btn-primary" onclick="doSearch()" style="padding:4px 32px;"><i class="bi bi-search"></i> 搜索产品</button>
+                <div style="text-align:center;margin-top:20px;display:flex;justify-content:center;gap:12px;">
+                    <button class="ant-btn ant-btn-primary" onclick="doSearch()" style="padding:4px 32px;"><i class="bi bi-search"></i> 开始筛选</button>
+                    <button class="ant-btn" onclick="resetFilters()" style="padding:4px 24px;"><i class="bi bi-arrow-counterclockwise"></i> 重置条件</button>
                 </div>
             </div>
         </div>
@@ -880,6 +945,338 @@
             </div>
         </div>
       </div><!-- end page-review-mining -->
+
+      <!-- PAGE: 痛点挖掘 -->
+      <div id="page-painpoint" style="display:none;">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:20px;">
+            <div>
+                <h2 style="margin:0;font-size:20px;font-weight:600;">Review 痛点挖掘</h2>
+                <p style="margin:4px 0 0;color:var(--text-secondary);font-size:13px;">AI 提取竞品差评痛点 → 聚类分析 → 差异化选品建议</p>
+            </div>
+            <div style="display:flex;gap:8px;align-items:center;">
+                <select class="ant-input" style="width:260px;">
+                    <option>Patio Furniture Cushions（US站 · 已分析 847 条评论）</option>
+                    <option>Power Drill Combo Kits（US站 · 已分析 2,103 条评论）</option>
+                    <option>Car Floor Mats（US站 · 已分析 1,456 条评论）</option>
+                </select>
+                <button class="ant-btn ant-btn-primary"><i class="bi bi-arrow-clockwise"></i> 刷新分析</button>
+            </div>
+        </div>
+        <!-- Stats -->
+        <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:20px;">
+            <div class="ant-card"><div class="ant-card-body" style="padding:16px;text-align:center;"><div style="font-size:24px;font-weight:700;color:var(--primary);">847</div><div style="font-size:12px;color:var(--text-secondary);">分析评论数</div></div></div>
+            <div class="ant-card"><div class="ant-card-body" style="padding:16px;text-align:center;"><div style="font-size:24px;font-weight:700;color:#cf1322;">6</div><div style="font-size:12px;color:var(--text-secondary);">高频痛点聚类</div></div></div>
+            <div class="ant-card"><div class="ant-card-body" style="padding:16px;text-align:center;"><div style="font-size:24px;font-weight:700;color:var(--success);">3</div><div style="font-size:12px;color:var(--text-secondary);">可行改进方向</div></div></div>
+            <div class="ant-card"><div class="ant-card-body" style="padding:16px;text-align:center;"><div style="font-size:24px;font-weight:700;color:#d48806;">12</div><div style="font-size:12px;color:var(--text-secondary);">涉及竞品 ASIN</div></div></div>
+        </div>
+        <!-- Pain Point Cards -->
+        <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(380px,1fr));gap:16px;margin-bottom:24px;">
+            <!-- Card 1 -->
+            <div class="ant-card">
+                <div class="ant-card-body" style="padding:16px;">
+                    <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:10px;">
+                        <div>
+                            <span style="display:inline-block;padding:2px 8px;border-radius:3px;font-size:11px;background:#fff2f0;color:#cf1322;font-weight:500;">高频痛点</span>
+                            <span style="font-size:15px;font-weight:600;margin-left:8px;">褪色/变色问题</span>
+                        </div>
+                        <div style="text-align:right;">
+                            <div style="font-size:20px;font-weight:700;color:#cf1322;">89</div>
+                            <div style="font-size:10px;color:var(--text-secondary);">提及次数</div>
+                        </div>
+                    </div>
+                    <div style="font-size:12px;color:var(--text-secondary);margin-bottom:8px;">涉及 8 个 ASIN · 占差评总量 31%</div>
+                    <div style="background:#fafafa;border-radius:6px;padding:10px;margin-bottom:10px;font-size:12px;color:#595959;font-style:italic;border-left:3px solid #ff4d4f;">
+                        "After only 2 months in the sun, the color faded significantly. Looks terrible now." — B0DNVDYZWT (4.1★)
+                    </div>
+                    <div style="background:#f6ffed;border-radius:6px;padding:10px;font-size:12px;border-left:3px solid #52c41a;">
+                        <strong style="color:#389e0d;">AI 改进建议：</strong> 使用 Solution Dyed Acrylic 面料替代印染工艺。成本增加约 15%，但可在 listing 中强调"5年抗褪色保证"作为核心差异点。
+                    </div>
+                    <div style="margin-top:10px;display:flex;justify-content:space-between;align-items:center;">
+                        <span style="font-size:11px;color:var(--text-secondary);">机会评分</span>
+                        <div style="display:flex;align-items:center;gap:4px;">
+                            <div style="width:100px;height:6px;background:#f0f0f0;border-radius:3px;overflow:hidden;"><div style="width:87%;height:100%;background:linear-gradient(90deg,#52c41a,#1677ff);border-radius:3px;"></div></div>
+                            <span style="font-size:12px;font-weight:600;color:var(--primary);">87</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Card 2 -->
+            <div class="ant-card">
+                <div class="ant-card-body" style="padding:16px;">
+                    <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:10px;">
+                        <div>
+                            <span style="display:inline-block;padding:2px 8px;border-radius:3px;font-size:11px;background:#fff2f0;color:#cf1322;font-weight:500;">高频痛点</span>
+                            <span style="font-size:15px;font-weight:600;margin-left:8px;">尺寸不符/偏小</span>
+                        </div>
+                        <div style="text-align:right;">
+                            <div style="font-size:20px;font-weight:700;color:#fa541c;">67</div>
+                            <div style="font-size:10px;color:var(--text-secondary);">提及次数</div>
+                        </div>
+                    </div>
+                    <div style="font-size:12px;color:var(--text-secondary);margin-bottom:8px;">涉及 6 个 ASIN · 占差评总量 23%</div>
+                    <div style="background:#fafafa;border-radius:6px;padding:10px;margin-bottom:10px;font-size:12px;color:#595959;font-style:italic;border-left:3px solid #ff4d4f;">
+                        "Listed as 24x24 but actual measurement is 22.5x22.5. Does NOT fit my chair properly." — B0DZH6LQ3M (4.1★)
+                    </div>
+                    <div style="background:#f6ffed;border-radius:6px;padding:10px;font-size:12px;border-left:3px solid #52c41a;">
+                        <strong style="color:#389e0d;">AI 改进建议：</strong> 提供真实尺寸对照图 + 测量视频。产品实际做大 0.5 英寸补偿缩水。在 bullet point 第一条标注"True-to-Size Guarantee"。
+                    </div>
+                    <div style="margin-top:10px;display:flex;justify-content:space-between;align-items:center;">
+                        <span style="font-size:11px;color:var(--text-secondary);">机会评分</span>
+                        <div style="display:flex;align-items:center;gap:4px;">
+                            <div style="width:100px;height:6px;background:#f0f0f0;border-radius:3px;overflow:hidden;"><div style="width:72%;height:100%;background:linear-gradient(90deg,#52c41a,#1677ff);border-radius:3px;"></div></div>
+                            <span style="font-size:12px;font-weight:600;color:var(--primary);">72</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Card 3 -->
+            <div class="ant-card">
+                <div class="ant-card-body" style="padding:16px;">
+                    <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:10px;">
+                        <div>
+                            <span style="display:inline-block;padding:2px 8px;border-radius:3px;font-size:11px;background:#fffbe6;color:#d48806;font-weight:500;">中频痛点</span>
+                            <span style="font-size:15px;font-weight:600;margin-left:8px;">防水性能不足</span>
+                        </div>
+                        <div style="text-align:right;">
+                            <div style="font-size:20px;font-weight:700;color:#d48806;">45</div>
+                            <div style="font-size:10px;color:var(--text-secondary);">提及次数</div>
+                        </div>
+                    </div>
+                    <div style="font-size:12px;color:var(--text-secondary);margin-bottom:8px;">涉及 5 个 ASIN · 占差评总量 16%</div>
+                    <div style="background:#fafafa;border-radius:6px;padding:10px;margin-bottom:10px;font-size:12px;color:#595959;font-style:italic;border-left:3px solid #faad14;">
+                        "Claims to be waterproof but after one rain, the foam inside was soaked. Had to throw it away." — B0G4GTTN61 (4.3★)
+                    </div>
+                    <div style="background:#f6ffed;border-radius:6px;padding:10px;font-size:12px;border-left:3px solid #52c41a;">
+                        <strong style="color:#389e0d;">AI 改进建议：</strong> 内芯改用闭孔 PE 发泡替代开孔海绵，外层接缝处热压密封。可宣传"IPX4级防雨"实测数据。
+                    </div>
+                    <div style="margin-top:10px;display:flex;justify-content:space-between;align-items:center;">
+                        <span style="font-size:11px;color:var(--text-secondary);">机会评分</span>
+                        <div style="display:flex;align-items:center;gap:4px;">
+                            <div style="width:100px;height:6px;background:#f0f0f0;border-radius:3px;overflow:hidden;"><div style="width:79%;height:100%;background:linear-gradient(90deg,#52c41a,#1677ff);border-radius:3px;"></div></div>
+                            <span style="font-size:12px;font-weight:600;color:var(--primary);">79</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Card 4 -->
+            <div class="ant-card">
+                <div class="ant-card-body" style="padding:16px;">
+                    <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:10px;">
+                        <div>
+                            <span style="display:inline-block;padding:2px 8px;border-radius:3px;font-size:11px;background:#fffbe6;color:#d48806;font-weight:500;">中频痛点</span>
+                            <span style="font-size:15px;font-weight:600;margin-left:8px;">系带/固定松脱</span>
+                        </div>
+                        <div style="text-align:right;">
+                            <div style="font-size:20px;font-weight:700;color:#d48806;">38</div>
+                            <div style="font-size:10px;color:var(--text-secondary);">提及次数</div>
+                        </div>
+                    </div>
+                    <div style="font-size:12px;color:var(--text-secondary);margin-bottom:8px;">涉及 7 个 ASIN · 占差评总量 13%</div>
+                    <div style="background:#fafafa;border-radius:6px;padding:10px;margin-bottom:10px;font-size:12px;color:#595959;font-style:italic;border-left:3px solid #faad14;">
+                        "The ties are too short and flimsy. Cushion slides off the chair every time someone sits down." — B0DQP33H1J (4.3★)
+                    </div>
+                    <div style="background:#f6ffed;border-radius:6px;padding:10px;font-size:12px;border-left:3px solid #52c41a;">
+                        <strong style="color:#389e0d;">AI 改进建议：</strong> 改用防滑硅胶底 + 加宽弹性系带双固定方案。卖点："No-Slip Dual Lock System"，可申请实用新型专利。
+                    </div>
+                    <div style="margin-top:10px;display:flex;justify-content:space-between;align-items:center;">
+                        <span style="font-size:11px;color:var(--text-secondary);">机会评分</span>
+                        <div style="display:flex;align-items:center;gap:4px;">
+                            <div style="width:100px;height:6px;background:#f0f0f0;border-radius:3px;overflow:hidden;"><div style="width:65%;height:100%;background:linear-gradient(90deg,#52c41a,#1677ff);border-radius:3px;"></div></div>
+                            <span style="font-size:12px;font-weight:600;color:var(--primary);">65</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+      </div><!-- end page-painpoint -->
+
+      <!-- PAGE: 趋势雷达 -->
+      <div id="page-trend-radar" style="display:none;">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:20px;">
+            <div>
+                <h2 style="margin:0;font-size:20px;font-weight:600;">趋势雷达</h2>
+                <p style="margin:4px 0 0;color:var(--text-secondary);font-size:13px;">社交媒体趋势信号捕捉 + COSMO 结构化属性就绪度评估</p>
+            </div>
+            <div style="display:flex;gap:8px;">
+                <select class="ant-input" style="width:120px;">
+                    <option>全部来源</option><option>TikTok</option><option>Instagram</option><option>Pinterest</option><option>Reddit</option>
+                </select>
+                <select class="ant-input" style="width:120px;">
+                    <option>本周</option><option>近7天</option><option>近30天</option>
+                </select>
+            </div>
+        </div>
+        <!-- Stats -->
+        <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:20px;">
+            <div class="ant-card"><div class="ant-card-body" style="padding:16px;text-align:center;"><div style="font-size:24px;font-weight:700;color:var(--primary);">23</div><div style="font-size:12px;color:var(--text-secondary);">本周趋势信号</div></div></div>
+            <div class="ant-card"><div class="ant-card-body" style="padding:16px;text-align:center;"><div style="font-size:24px;font-weight:700;color:var(--success);">8</div><div style="font-size:12px;color:var(--text-secondary);">已验证（Amazon联动）</div></div></div>
+            <div class="ant-card"><div class="ant-card-body" style="padding:16px;text-align:center;"><div style="font-size:24px;font-weight:700;color:#d48806;">5</div><div style="font-size:12px;color:var(--text-secondary);">转化为选品建议</div></div></div>
+            <div class="ant-card"><div class="ant-card-body" style="padding:16px;text-align:center;"><div style="font-size:24px;font-weight:700;color:#cf1322;">2-4周</div><div style="font-size:12px;color:var(--text-secondary);">平均领先窗口期</div></div></div>
+        </div>
+        <!-- Signal Cards -->
+        <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(380px,1fr));gap:16px;margin-bottom:24px;">
+            <!-- Signal 1 -->
+            <div class="ant-card">
+                <div class="ant-card-body" style="padding:16px;">
+                    <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:10px;">
+                        <div>
+                            <span style="display:inline-block;padding:2px 8px;border-radius:3px;font-size:11px;background:#000;color:#fff;font-weight:500;">TikTok</span>
+                            <span style="display:inline-block;padding:2px 8px;border-radius:3px;font-size:11px;background:#f6ffed;color:#389e0d;margin-left:4px;">已验证</span>
+                        </div>
+                        <span style="font-size:11px;color:var(--text-secondary);">2026-06-05 捕获</span>
+                    </div>
+                    <div style="font-size:15px;font-weight:600;margin-bottom:6px;">#JapaneseGardenCushion</div>
+                    <div style="font-size:12px;color:var(--text-secondary);margin-bottom:10px;">日式庭院坐垫 · 播放量 4.2M · 互动率 8.7%</div>
+                    <div style="display:flex;align-items:center;gap:12px;margin-bottom:10px;">
+                        <div style="flex:1;">
+                            <div style="font-size:11px;color:var(--text-secondary);margin-bottom:4px;">TikTok 热度</div>
+                            <svg width="100%" height="30" viewBox="0 0 160 30"><polyline points="5,25 25,22 45,18 65,12 85,8 105,5 125,3 145,2" fill="none" stroke="#000" stroke-width="2" stroke-linecap="round"/></svg>
+                        </div>
+                        <div style="flex:1;">
+                            <div style="font-size:11px;color:var(--text-secondary);margin-bottom:4px;">Amazon 搜索量（滞后验证）</div>
+                            <svg width="100%" height="30" viewBox="0 0 160 30"><polyline points="5,25 25,25 45,24 65,22 85,18 105,12 125,8 145,5" fill="none" stroke="var(--primary)" stroke-width="2" stroke-linecap="round"/><text x="130" y="28" font-size="9" fill="var(--primary)">+340%</text></svg>
+                        </div>
+                    </div>
+                    <div style="font-size:12px;padding:8px;background:#e6f4ff;border-radius:4px;margin-bottom:10px;">
+                        <strong>关联类目：</strong>Patio Cushions > Japanese Style · 预估月搜索量 12,000 · 竞品数 &lt;15
+                    </div>
+                    <div style="display:flex;gap:8px;">
+                        <button class="ant-btn ant-btn-sm"><i class="bi bi-eye"></i> 详情</button>
+                        <button class="ant-btn ant-btn-sm" style="color:var(--success);border-color:var(--success);"><i class="bi bi-plus"></i> 转入选品</button>
+                    </div>
+                </div>
+            </div>
+            <!-- Signal 2 -->
+            <div class="ant-card">
+                <div class="ant-card-body" style="padding:16px;">
+                    <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:10px;">
+                        <div>
+                            <span style="display:inline-block;padding:2px 8px;border-radius:3px;font-size:11px;background:linear-gradient(45deg,#833ab4,#fd1d1d,#fcb045);color:#fff;font-weight:500;">Instagram</span>
+                            <span style="display:inline-block;padding:2px 8px;border-radius:3px;font-size:11px;background:#fffbe6;color:#d48806;margin-left:4px;">待验证</span>
+                        </div>
+                        <span style="font-size:11px;color:var(--text-secondary);">2026-06-07 捕获</span>
+                    </div>
+                    <div style="font-size:15px;font-weight:600;margin-bottom:6px;">#ToolWallOrganizer</div>
+                    <div style="font-size:12px;color:var(--text-secondary);margin-bottom:10px;">工具墙收纳系统 · 帖子数 18K+ · 互动率 6.2%</div>
+                    <div style="display:flex;align-items:center;gap:12px;margin-bottom:10px;">
+                        <div style="flex:1;">
+                            <div style="font-size:11px;color:var(--text-secondary);margin-bottom:4px;">Instagram 热度</div>
+                            <svg width="100%" height="30" viewBox="0 0 160 30"><polyline points="5,22 25,20 45,16 65,14 85,10 105,7 125,5 145,4" fill="none" stroke="#833ab4" stroke-width="2" stroke-linecap="round"/></svg>
+                        </div>
+                        <div style="flex:1;">
+                            <div style="font-size:11px;color:var(--text-secondary);margin-bottom:4px;">Amazon 搜索量（预测中）</div>
+                            <svg width="100%" height="30" viewBox="0 0 160 30"><polyline points="5,20 25,20 45,19 65,18 85,17 105,15 125,14 145,12" fill="none" stroke="var(--primary)" stroke-width="2" stroke-linecap="round" stroke-dasharray="4,3"/><text x="120" y="28" font-size="9" fill="#d48806">+85%</text></svg>
+                        </div>
+                    </div>
+                    <div style="font-size:12px;padding:8px;background:#e6f4ff;border-radius:4px;margin-bottom:10px;">
+                        <strong>关联类目：</strong>Garage Storage > Wall Systems · 预估月搜索量 8,500 · 竞品数 ~40
+                    </div>
+                    <div style="display:flex;gap:8px;">
+                        <button class="ant-btn ant-btn-sm"><i class="bi bi-eye"></i> 详情</button>
+                        <button class="ant-btn ant-btn-sm" style="color:var(--success);border-color:var(--success);"><i class="bi bi-plus"></i> 转入选品</button>
+                    </div>
+                </div>
+            </div>
+            <!-- Signal 3 -->
+            <div class="ant-card">
+                <div class="ant-card-body" style="padding:16px;">
+                    <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:10px;">
+                        <div>
+                            <span style="display:inline-block;padding:2px 8px;border-radius:3px;font-size:11px;background:#ff4500;color:#fff;font-weight:500;">Reddit</span>
+                            <span style="display:inline-block;padding:2px 8px;border-radius:3px;font-size:11px;background:#f6ffed;color:#389e0d;margin-left:4px;">已验证</span>
+                        </div>
+                        <span style="font-size:11px;color:var(--text-secondary);">2026-06-03 捕获</span>
+                    </div>
+                    <div style="font-size:15px;font-weight:600;margin-bottom:6px;">r/AutoDetailing → Ceramic Coating Applicator</div>
+                    <div style="font-size:12px;color:var(--text-secondary);margin-bottom:10px;">陶瓷镀膜涂抹工具 · 热帖 12 篇 · 评论热度 Top3</div>
+                    <div style="display:flex;align-items:center;gap:12px;margin-bottom:10px;">
+                        <div style="flex:1;">
+                            <div style="font-size:11px;color:var(--text-secondary);margin-bottom:4px;">Reddit 讨论热度</div>
+                            <svg width="100%" height="30" viewBox="0 0 160 30"><polyline points="5,20 25,18 45,22 65,15 85,8 105,5 125,6 145,4" fill="none" stroke="#ff4500" stroke-width="2" stroke-linecap="round"/></svg>
+                        </div>
+                        <div style="flex:1;">
+                            <div style="font-size:11px;color:var(--text-secondary);margin-bottom:4px;">Amazon 搜索量</div>
+                            <svg width="100%" height="30" viewBox="0 0 160 30"><polyline points="5,24 25,23 45,22 65,20 85,15 105,10 125,7 145,4" fill="none" stroke="var(--primary)" stroke-width="2" stroke-linecap="round"/><text x="130" y="28" font-size="9" fill="var(--primary)">+210%</text></svg>
+                        </div>
+                    </div>
+                    <div style="font-size:12px;padding:8px;background:#e6f4ff;border-radius:4px;margin-bottom:10px;">
+                        <strong>关联类目：</strong>Automotive > Detailing > Applicators · 预估月搜索量 6,800 · 竞品数 ~25
+                    </div>
+                    <div style="display:flex;gap:8px;">
+                        <button class="ant-btn ant-btn-sm"><i class="bi bi-eye"></i> 详情</button>
+                        <button class="ant-btn ant-btn-sm" style="color:var(--success);border-color:var(--success);"><i class="bi bi-plus"></i> 转入选品</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- COSMO Section -->
+        <div class="ant-card">
+            <div class="ant-card-head">
+                <span class="ant-card-head-title"><i class="bi bi-diagram-3" style="color:var(--primary);"></i> COSMO 结构化属性就绪度评估</span>
+                <span style="font-size:12px;color:var(--text-secondary);">Amazon AI 搜索（Alexa/Rufus）对结构化属性的依赖度正在超越关键词</span>
+            </div>
+            <div class="ant-card-body">
+                <div style="display:flex;gap:24px;">
+                    <!-- Left: Input & Score -->
+                    <div style="width:320px;">
+                        <div style="margin-bottom:16px;">
+                            <label style="font-size:12px;color:var(--text-secondary);display:block;margin-bottom:4px;">输入 ASIN 评估</label>
+                            <div style="display:flex;gap:8px;"><input class="ant-input" placeholder="B0D1KXKH7Y" value="B0D1KXKH7Y" style="flex:1;"><button class="ant-btn ant-btn-primary ant-btn-sm">评估</button></div>
+                        </div>
+                        <div style="text-align:center;padding:20px;background:#fafafa;border-radius:8px;">
+                            <div style="font-size:11px;color:var(--text-secondary);margin-bottom:8px;">COSMO 就绪度评分</div>
+                            <div style="font-size:48px;font-weight:700;color:var(--primary);">68<span style="font-size:16px;color:var(--text-secondary);">/100</span></div>
+                            <div style="font-size:12px;color:#d48806;margin-top:4px;">中等就绪 · 有 4 个关键属性缺失</div>
+                        </div>
+                        <div style="margin-top:16px;font-size:12px;">
+                            <div style="font-weight:600;margin-bottom:8px;">与 Top10 竞品对比</div>
+                            <div style="display:flex;justify-content:space-between;margin-bottom:4px;"><span>当前 ASIN</span><div style="display:flex;align-items:center;gap:4px;"><div style="width:80px;height:6px;background:#f0f0f0;border-radius:3px;overflow:hidden;"><div style="width:68%;height:100%;background:var(--primary);border-radius:3px;"></div></div><span>68%</span></div></div>
+                            <div style="display:flex;justify-content:space-between;margin-bottom:4px;"><span>Top10 均值</span><div style="display:flex;align-items:center;gap:4px;"><div style="width:80px;height:6px;background:#f0f0f0;border-radius:3px;overflow:hidden;"><div style="width:82%;height:100%;background:var(--success);border-radius:3px;"></div></div><span>82%</span></div></div>
+                            <div style="display:flex;justify-content:space-between;"><span>类目 Best Seller</span><div style="display:flex;align-items:center;gap:4px;"><div style="width:80px;height:6px;background:#f0f0f0;border-radius:3px;overflow:hidden;"><div style="width:95%;height:100%;background:#52c41a;border-radius:3px;"></div></div><span>95%</span></div></div>
+                        </div>
+                    </div>
+                    <!-- Right: Radar & Suggestions -->
+                    <div style="flex:1;">
+                        <div style="display:flex;gap:24px;">
+                            <div style="flex:1;">
+                                <div style="font-size:13px;font-weight:600;margin-bottom:12px;">属性覆盖雷达</div>
+                                <svg width="200" height="200" viewBox="0 0 200 200">
+                                    <polygon points="100,20 170,60 170,140 100,180 30,140 30,60" fill="none" stroke="#f0f0f0" stroke-width="1"/>
+                                    <polygon points="100,45 150,72 150,128 100,155 50,128 50,72" fill="none" stroke="#f0f0f0" stroke-width="1"/>
+                                    <polygon points="100,70 130,85 130,115 100,130 70,115 70,85" fill="none" stroke="#f0f0f0" stroke-width="1"/>
+                                    <polygon points="100,30 158,68 145,135 100,160 42,120 55,58" fill="rgba(22,119,255,0.15)" stroke="var(--primary)" stroke-width="2"/>
+                                    <circle cx="100" cy="30" r="3" fill="var(--primary)"/><circle cx="158" cy="68" r="3" fill="var(--primary)"/><circle cx="145" cy="135" r="3" fill="var(--primary)"/><circle cx="100" cy="160" r="3" fill="var(--primary)"/><circle cx="42" cy="120" r="3" fill="#cf1322"/><circle cx="55" cy="58" r="3" fill="#cf1322"/>
+                                    <text x="100" y="12" text-anchor="middle" font-size="10" fill="var(--text)">材质</text>
+                                    <text x="180" y="68" font-size="10" fill="var(--text)">场景</text>
+                                    <text x="178" y="140" font-size="10" fill="var(--text)">规格</text>
+                                    <text x="100" y="195" text-anchor="middle" font-size="10" fill="var(--text)">用户群体</text>
+                                    <text x="15" y="125" font-size="10" fill="#cf1322">兼容性</text>
+                                    <text x="20" y="55" font-size="10" fill="#cf1322">使用方式</text>
+                                </svg>
+                            </div>
+                            <div style="flex:1;">
+                                <div style="font-size:13px;font-weight:600;margin-bottom:12px;">AI 属性补全建议</div>
+                                <div style="font-size:12px;">
+                                    <div style="padding:8px;background:#fff2f0;border-radius:4px;margin-bottom:8px;border-left:3px solid #cf1322;">
+                                        <strong>缺失：兼容性属性</strong><br>建议补充：适配椅型(Adirondack/Rocking/Dining)、绑带兼容宽度范围
+                                    </div>
+                                    <div style="padding:8px;background:#fff2f0;border-radius:4px;margin-bottom:8px;border-left:3px solid #cf1322;">
+                                        <strong>缺失：使用方式</strong><br>建议补充：室内外双用标注、清洗方式(机洗/手洗)、收纳方式
+                                    </div>
+                                    <div style="padding:8px;background:#fffbe6;border-radius:4px;margin-bottom:8px;border-left:3px solid #d48806;">
+                                        <strong>不完整：用户群体</strong><br>建议补充：适合人群(老人关节支撑/儿童安全)、使用频率场景
+                                    </div>
+                                    <div style="padding:8px;background:#f6ffed;border-radius:4px;border-left:3px solid #52c41a;">
+                                        <strong>预计效果：</strong>补全后 COSMO 评分 68→89，AI 搜索可见度预估提升 +35%
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+      </div><!-- end page-trend-radar -->
 
     </div>
 <!-- Detail Modal -->
@@ -1493,7 +1890,7 @@
                     <label style="font-size:12px;display:flex;align-items:center;gap:4px;cursor:pointer;"><input type="radio" name="presetVisibility" value="team"> 团队共享</label>
                     <label style="font-size:12px;display:flex;align-items:center;gap:4px;cursor:pointer;"><input type="radio" name="presetVisibility" value="global"> 全局可见</label>
                 </div>
-                <div style="font-size:11px;color:var(--text-secondary);margin-top:6px;">团队共享：同组成员可使用；全局可见：所有选品人员可使用</div>
+                <div style="font-size:11px;color:var(--text-secondary);margin-top:6px;">团队共享：同开发小组成员可使用；全局可见：默认为系统推荐，所有人可见</div>
             </div>
             <div style="margin-bottom:20px;">
                 <label style="font-size:12px;font-weight:500;display:block;margin-bottom:6px;">包含筛选条件</label>

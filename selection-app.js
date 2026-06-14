@@ -120,9 +120,9 @@ function switchTab(name, el) {
 }
 
 function selectPreset(el) {
+    const wasActive = el.classList.contains('ant-tag-active');
     document.querySelectorAll('.ant-tag').forEach(t => t.classList.remove('ant-tag-active'));
-    el.classList.add('ant-tag-active');
-    doSearch();
+    if (!wasActive) el.classList.add('ant-tag-active');
 }
 
 function resetFilters() {
@@ -132,7 +132,7 @@ function resetFilters() {
 }
 
 function showPage(name) {
-    document.querySelectorAll('#page-search, #page-pool, #page-ai-rules, #page-sourcing, #page-review-mining').forEach(p => p.style.display = 'none');
+    document.querySelectorAll('#page-search, #page-pool, #page-ai-rules, #page-sourcing, #page-review-mining, #page-painpoint, #page-trend-radar').forEach(p => p.style.display = 'none');
     document.getElementById('page-' + name).style.display = '';
     document.querySelectorAll('.menu-item').forEach(m => m.classList.remove('active'));
     event.currentTarget.classList.add('active');
@@ -158,7 +158,44 @@ function closeMonitorSettings() {
     document.body.style.overflow = '';
 }
 
-document.addEventListener('DOMContentLoaded', renderTable);
+document.addEventListener('DOMContentLoaded', function() {
+    renderTable();
+    document.querySelectorAll('input[name="site"]').forEach(radio => {
+        radio.closest('label').addEventListener('click', function() {
+            document.querySelectorAll('input[name="site"]').forEach(r => r.closest('label').classList.remove('ant-tag-active'));
+            this.classList.add('ant-tag-active');
+            updateDimensionOptions(this.textContent.trim());
+        });
+    });
+});
+
+const dimensionData = {
+    '美国站': [{v:'ST/SS',t:'小号标准尺寸'},{v:'LS',t:'大号标准尺寸'},{v:'SO',t:'小号大件'},{v:'MO',t:'中号大件'},{v:'LO/LB',t:'大号大件'},{v:'SP',t:'特殊大件'},{v:'O',t:'其他尺寸'},{v:'ELO',t:'超大尺寸：0~50磅'},{v:'EL5O',t:'超大尺寸：50~70磅'},{v:'EL7O',t:'超大尺寸：70~150磅'},{v:'EL15O',t:'超大尺寸：150磅以上'}],
+    '日本站': [{v:'SM',t:'小号'},{v:'ST',t:'标准'},{v:'OV',t:'大件'},{v:'SS',t:'超大尺寸'},{v:'O',t:'其他尺寸'}],
+    '加拿大': [{v:'EN',t:'信封装'},{v:'ST',t:'标准'},{v:'SO',t:'小号大件'},{v:'MO',t:'中号大件'},{v:'LO',t:'大号大件'},{v:'SP',t:'特殊大件'},{v:'O',t:'其他尺寸'}],
+    '_eu': [{v:'SL',t:'小号信封'},{v:'NL',t:'标准信封'},{v:'LL',t:'大号信封'},{v:'ELL',t:'超大号信封'},{v:'SM',t:'小包裹'},{v:'SD',t:'标准包裹'},{v:'SB',t:'小号大件'},{v:'NB',t:'标准大件'},{v:'LB',t:'大号大件'},{v:'SPO',t:'特殊大件'},{v:'O',t:'其他尺寸'}]
+};
+
+function updateDimensionOptions(site) {
+    const sel = document.getElementById('dimensionTypeSelect');
+    if (!sel) return;
+    const euSites = ['英国站','德国站','法国站','意大利','西班牙'];
+    let options = dimensionData[site] || (euSites.includes(site) ? dimensionData['_eu'] : dimensionData['美国站']);
+    sel.innerHTML = '<option>不限</option>' + options.map(o => `<option value="${o.v}">${o.t}</option>`).join('');
+}
+
+function toggleFilters() {
+    const body = document.getElementById('filterBody');
+    const riskRow = document.getElementById('filterRiskRow');
+    const icon = document.getElementById('filterToggleIcon');
+    const text = document.getElementById('filterToggleText');
+    const isHidden = body.style.display === 'none';
+    body.style.display = isHidden ? 'grid' : 'none';
+    if (riskRow) riskRow.style.display = isHidden ? '' : 'none';
+    icon.className = isHidden ? 'bi bi-chevron-up' : 'bi bi-chevron-down';
+    text.textContent = isHidden ? '隐藏筛选项' : '展开筛选项';
+}
+
 document.getElementById('detailModal').addEventListener('click', function(e) {
     if (e.target === this) closeModal();
 });
@@ -197,7 +234,33 @@ function closeInsightModal() {
     document.getElementById('insightModal').style.display = 'none';
 }
 
+function hasAnyFilter() {
+    const inputs = document.querySelectorAll('#filterBody input[type="number"], #filterBody input[type="text"], #filterBody .ant-input');
+    for (const input of inputs) { if (input.value.trim()) return true; }
+    const selects = document.querySelectorAll('#filterBody select');
+    for (const sel of selects) { if (sel.selectedIndex > 0) return true; }
+    const checkboxes = document.querySelectorAll('#filterBody input[type="checkbox"]:checked');
+    if (checkboxes.length > 0) return true;
+    return false;
+}
+
+function getActivePreset() {
+    return document.querySelector('.ant-tag.ant-tag-active');
+}
+
 function openPresetModal(mode) {
+    if (mode === 'save') {
+        const activePreset = getActivePreset();
+        const hasFilter = hasAnyFilter();
+        if (!activePreset && !hasFilter) {
+            showToast('尚未选择任何筛选项目，不可保存');
+            return;
+        }
+        if (activePreset && hasFilter) {
+            showToast('方案「' + activePreset.textContent.trim() + '」已保存', 'success');
+            return;
+        }
+    }
     const modal = document.getElementById('presetModal');
     const title = document.getElementById('presetModalTitle');
     if (mode === 'save') {
@@ -207,6 +270,21 @@ function openPresetModal(mode) {
     }
     modal.classList.add('show');
     document.body.style.overflow = 'hidden';
+}
+
+function showToast(msg, type) {
+    const existing = document.querySelector('.toast-msg');
+    if (existing) existing.remove();
+    const el = document.createElement('div');
+    el.className = 'toast-msg';
+    const bgColor = type === 'success' ? '#f6ffed' : '#fff2f0';
+    const borderColor = type === 'success' ? '#b7eb8f' : '#ffa39e';
+    const textColor = type === 'success' ? '#389e0d' : '#cf1322';
+    const icon = type === 'success' ? 'bi-check-circle-fill' : 'bi-exclamation-circle-fill';
+    el.style.cssText = 'position:fixed;top:60px;left:50%;transform:translateX(-50%);z-index:9999;padding:10px 20px;border-radius:6px;font-size:13px;box-shadow:0 4px 12px rgba(0,0,0,.1);background:' + bgColor + ';border:1px solid ' + borderColor + ';color:' + textColor + ';display:flex;align-items:center;gap:8px;';
+    el.innerHTML = '<i class="bi ' + icon + '"></i> ' + msg;
+    document.body.appendChild(el);
+    setTimeout(() => el.remove(), 2500);
 }
 
 function closePresetModal() {
