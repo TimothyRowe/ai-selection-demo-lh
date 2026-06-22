@@ -86,8 +86,6 @@ function renderTable() {
             <td>$${(p.revenue/1000).toFixed(0)}K</td>
             <td>${p.rating} ⭐</td>
             <td>${p.reviews.toLocaleString()}</td>
-            <td><span class="${r.cls}" style="padding:2px 6px;border-radius:3px;font-size:11px;cursor:help;${riskStyle}" title="${p.riskDetail}"><i class="bi ${r.icon}"></i> ${r.label}</span></td>
-            <td style="font-size:11px;">${certTags}${!p.certsOwned?'<i class="bi bi-exclamation-circle" style="color:var(--warning);margin-left:2px;cursor:help;" title="我司暂未持有该认证，需额外采购"></i>':''}</td>
             <td class="${p.growth >= 0 ? 'trend-up' : 'trend-down'}">${p.growth > 0 ? '+' : ''}${p.growth}%</td>
             <td>
                 <button class="ant-btn ant-btn-sm" onclick="openModal()" title="查看详情"><i class="bi bi-eye"></i></button>
@@ -143,6 +141,45 @@ function openAnomalyModal() {
     document.body.style.overflow = 'hidden';
 }
 
+function switchInsightTab(name, el) {
+    document.querySelectorAll('.insight-tab').forEach(t => {
+        t.style.borderBottomColor = 'transparent';
+        t.style.color = 'var(--text-secondary)';
+    });
+    el.style.borderBottomColor = 'var(--primary)';
+    el.style.color = 'var(--primary)';
+    ['anomaly','bsr','listing','manage'].forEach(id => {
+        const panel = document.getElementById('insight-panel-' + id);
+        if (panel) panel.style.display = id === name ? '' : 'none';
+    });
+}
+
+function toggleColumnPicker() {
+    const picker = document.getElementById('columnPicker');
+    picker.style.display = picker.style.display === 'none' ? '' : 'none';
+}
+
+function doPush(btn) {
+    const row = btn.closest('tr');
+    const statusCell = row.querySelector('td:nth-last-child(2)');
+    const random = Math.random();
+    if (random > 0.3) {
+        statusCell.innerHTML = '<span style="padding:2px 8px;border-radius:3px;font-size:11px;background:#f6ffed;color:#389e0d;border:1px solid #b7eb8f;">推送成功</span>';
+        showToast('推送成功：已推送至ERP产品库', 'success');
+    } else {
+        statusCell.innerHTML = '<span style="padding:2px 8px;border-radius:3px;font-size:11px;background:#fff2f0;color:#cf1322;border:1px solid #ffa39e;">推送失败</span>';
+        showToast('推送失败：ERP接口超时，请稍后重试');
+    }
+}
+
+function openPushLogModal() {
+    document.getElementById('pushLogModal').style.display = 'flex';
+}
+
+function closePushLogModal() {
+    document.getElementById('pushLogModal').style.display = 'none';
+}
+
 function closeAnomalyModal() {
     document.getElementById('anomalyModal').classList.remove('show');
     document.body.style.overflow = '';
@@ -186,12 +223,10 @@ function updateDimensionOptions(site) {
 
 function toggleFilters() {
     const body = document.getElementById('filterBody');
-    const riskRow = document.getElementById('filterRiskRow');
     const icon = document.getElementById('filterToggleIcon');
     const text = document.getElementById('filterToggleText');
     const isHidden = body.style.display === 'none';
     body.style.display = isHidden ? 'grid' : 'none';
-    if (riskRow) riskRow.style.display = isHidden ? '' : 'none';
     icon.className = isHidden ? 'bi bi-chevron-up' : 'bi bi-chevron-down';
     text.textContent = isHidden ? '隐藏筛选项' : '展开筛选项';
 }
@@ -205,18 +240,6 @@ function showReviewPanel(asin) {
     if (panel) panel.scrollIntoView({behavior: 'smooth', block: 'start'});
 }
 
-function showMonitorDetail(id) {
-    document.getElementById('monitorDetailArea').style.display = '';
-    document.querySelectorAll('#monitorDetailArea > div').forEach(d => d.style.display = 'none');
-    const target = document.getElementById('detail-' + id);
-    if (target) target.style.display = '';
-}
-
-function hideMonitorDetail() {
-    document.getElementById('monitorDetailArea').style.display = 'none';
-}
-
-function filterMonitors(value, field) {}
 
 function openCreateMonitorModal() {
     document.getElementById('createMonitorModal').style.display = 'flex';

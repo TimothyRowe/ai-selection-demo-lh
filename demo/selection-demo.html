@@ -167,14 +167,14 @@
     <div class="sider">
         <div class="sider-logo"><span><i class="bi bi-box-seam"></i> KTE 选品</span></div>
         <div class="sider-menu">
-            <div class="menu-item active" onclick="showPage('search')"><i class="bi bi-search"></i> 选产品</div>
-            <div class="menu-item" onclick="showPage('pool')"><i class="bi bi-inbox"></i> 选品结果池</div>
-            <div class="menu-item" onclick="showPage('ai-rules')"><i class="bi bi-robot"></i> AI自动选品</div>
-            <div class="menu-item" onclick="showPage('sourcing')"><i class="bi bi-shop"></i> 货源寻源</div>
-            <div class="menu-item" onclick="showPage('review-mining')"><i class="bi bi-binoculars"></i> 竞品洞察</div>
-            <div class="menu-item" onclick="showPage('painpoint')"><i class="bi bi-chat-square-text"></i> 痛点挖掘</div>
-            <div class="menu-item" onclick="showPage('trend-radar')"><i class="bi bi-broadcast"></i> 趋势雷达</div>
-            <div class="menu-item"><i class="bi bi-gear"></i> 系统设置</div>
+            <div class="menu-item active" onclick="showPage('search')"><i class="bi bi-search"></i> 选产品 <span style="margin-left:auto;font-size:10px;padding:1px 5px;border-radius:3px;background:#1677ff;color:#fff;">v1.0</span></div>
+            <div class="menu-item" onclick="showPage('pool')"><i class="bi bi-inbox"></i> 选品结果池 <span style="margin-left:auto;font-size:10px;padding:1px 5px;border-radius:3px;background:#1677ff;color:#fff;">v1.0</span></div>
+            <div class="menu-item" onclick="showPage('review-mining')"><i class="bi bi-binoculars"></i> 竞品洞察 <span style="margin-left:auto;font-size:10px;padding:1px 5px;border-radius:3px;background:#fa541c;color:#fff;">v1.1</span></div>
+            <div class="menu-item" onclick="showPage('ai-rules')"><i class="bi bi-robot"></i> AI自动选品 <span style="margin-left:auto;font-size:10px;padding:1px 5px;border-radius:3px;background:rgba(255,255,255,0.15);color:rgba(255,255,255,0.45);">待细化</span></div>
+            <div class="menu-item" onclick="showPage('sourcing')"><i class="bi bi-shop"></i> 货源寻源 <span style="margin-left:auto;font-size:10px;padding:1px 5px;border-radius:3px;background:rgba(255,255,255,0.15);color:rgba(255,255,255,0.45);">待细化</span></div>
+            <div class="menu-item" onclick="showPage('painpoint')"><i class="bi bi-chat-square-text"></i> 痛点挖掘 <span style="margin-left:auto;font-size:10px;padding:1px 5px;border-radius:3px;background:rgba(255,255,255,0.15);color:rgba(255,255,255,0.45);">待细化</span></div>
+            <div class="menu-item" onclick="showPage('trend-radar')"><i class="bi bi-broadcast"></i> 趋势雷达 <span style="margin-left:auto;font-size:10px;padding:1px 5px;border-radius:3px;background:rgba(255,255,255,0.15);color:rgba(255,255,255,0.45);">待细化</span></div>
+            <div class="menu-item"><i class="bi bi-gear"></i> 系统设置 <span style="margin-left:auto;font-size:10px;padding:1px 5px;border-radius:3px;background:rgba(255,255,255,0.15);color:rgba(255,255,255,0.45);">待细化</span></div>
         </div>
     </div>
 
@@ -194,14 +194,6 @@
                     <span style="font-size:13px;">张三（开发专员）</span>
                 </div>
             </div>
-        </div>
-
-        <!-- Stats -->
-        <div class="stats-row">
-            <div class="stat-item"><div class="stat-value">1,247</div><div class="stat-label">本月结果池候选 <i class="bi bi-question-circle" style="cursor:help;color:var(--text-secondary);" title="开发专员从筛选结果中勾选加入结果池的产品总数，等待进一步评估和开品"></i></div></div>
-            <div class="stat-item"><div class="stat-value">208</div><div class="stat-label">本月已开品 <i class="bi bi-question-circle" style="cursor:help;color:var(--text-secondary);" title="从结果池确认并进入ERP开品流程的产品数量（含资料填充、询盘、知产审核等）"></i></div></div>
-            <div class="stat-item"><div class="stat-value" style="color:var(--success);">16.7%</div><div class="stat-label">候选确认率 <i class="bi bi-question-circle" style="cursor:help;color:var(--text-secondary);" title="已开品数÷结果池候选数，反映选品精准度。行业参考值10-20%"></i></div></div>
-            <div class="stat-item" style="cursor:pointer;position:relative;" onclick="openAnomalyModal()"><div class="stat-value" style="color:var(--error);">17</div><div class="stat-label">竞品异动机会 <i class="bi bi-lightning-charge-fill" style="color:var(--error);font-size:10px;"></i> <i class="bi bi-question-circle" style="cursor:help;color:var(--text-secondary);" title="监控类目Top竞品近期销量骤降/断货/下架的数量，点击查看详情"></i></div><span style="position:absolute;top:8px;right:8px;font-size:10px;color:var(--primary);">点击查看 →</span></div>
         </div>
 
         <!-- My Presets (我的模式) -->
@@ -327,21 +319,6 @@
                         </div>
                     </div>
                 </div>
-                <!-- 内部风控 + 搜索 -->
-                <div id="filterRiskRow" style="padding-top:16px;margin-top:16px;border-top:1px dashed var(--border);display:flex;align-items:center;gap:16px;flex-wrap:wrap;">
-                    <div style="font-size:13px;font-weight:600;color:var(--text);"><i class="bi bi-shield-check" style="color:var(--success);"></i> 内部风控</div>
-                    <label style="display:inline-flex;align-items:center;gap:6px;font-size:13px;cursor:pointer;padding:4px 12px;background:#f6ffed;border:1px solid #b7eb8f;border-radius:4px;">
-                        <input type="checkbox" checked style="accent-color:var(--success);">
-                        <span>自动过滤侵权词</span>
-                        <i class="bi bi-question-circle" style="cursor:help;color:#bfbfbf;" title="匹配ERP系统「产品库-知产管理-侵权词库」的2万+条内部维护词汇，精确匹配卖家精灵返回的商品名称、关键词、子类目中的侵权词。默认开启。"></i>
-                    </label>
-                    <label style="display:inline-flex;align-items:center;gap:6px;font-size:13px;cursor:pointer;padding:4px 12px;background:#f6ffed;border:1px solid #b7eb8f;border-radius:4px;">
-                        <input type="checkbox" checked style="accent-color:var(--success);">
-                        <span>以图搜图模式：已自动过滤重复开品</span>
-                        <i class="bi bi-question-circle" style="cursor:help;color:#bfbfbf;" title="将卖家精灵返回的商品主图与ERP产品库已有SKU图片进行以图搜图比对，自动过滤已开品或高度相似的商品，避免重复开品。默认开启。"></i>
-                    </label>
-                    <span style="font-size:11px;color:var(--text-secondary);">数据源：ERP产品库 > 知产管理 > 侵权词库（20,000+词条）</span>
-                </div>
                 <div style="text-align:center;margin-top:20px;display:flex;justify-content:center;gap:12px;">
                     <button class="ant-btn ant-btn-primary" onclick="doSearch()" style="padding:4px 32px;"><i class="bi bi-search"></i> 开始筛选</button>
                     <button class="ant-btn" onclick="resetFilters()" style="padding:4px 24px;"><i class="bi bi-arrow-counterclockwise"></i> 重置条件</button>
@@ -358,6 +335,8 @@
                 </div>
                 <div style="display:flex;gap:8px;">
                     <button class="ant-btn ant-btn-success ant-btn-sm"><i class="bi bi-check2-all"></i> 批量加入结果池</button>
+                    <button class="ant-btn ant-btn-sm" style="background:#f6ffed;border-color:#b7eb8f;color:#389e0d;" title="勾选产品后，批量匹配ERP侵权词库（2万+词条）"><i class="bi bi-shield-exclamation"></i> 侵权词过滤</button>
+                    <button class="ant-btn ant-btn-sm" style="background:#f6ffed;border-color:#b7eb8f;color:#389e0d;" title="勾选产品后，将主图与ERP产品库已有SKU进行以图搜图比对"><i class="bi bi-image"></i> 以图搜图查重</button>
                     <button class="ant-btn ant-btn-sm"><i class="bi bi-download"></i> 导出</button>
                     <select class="ant-select" style="width:140px;height:24px;font-size:12px;">
                         <option>按月销量降序</option><option>按销售额降序</option><option>按BSR升序</option><option>按增长率降序</option>
@@ -375,8 +354,6 @@
                         <th>月销售额 <i class="bi bi-question-circle" style="cursor:help;color:#bfbfbf;font-size:11px;" title="月销量×售价"></i></th>
                         <th>评分 <i class="bi bi-question-circle" style="cursor:help;color:#bfbfbf;font-size:11px;" title="平均星级(1-5)"></i></th>
                         <th>Reviews <i class="bi bi-question-circle" style="cursor:help;color:#bfbfbf;font-size:11px;" title="累计评论数"></i></th>
-                        <th>合规风险 <i class="bi bi-question-circle" style="cursor:help;color:#bfbfbf;font-size:11px;" title="综合专利侵权风险(智慧芽API)+内部违禁库匹配结果。绿=安全，黄=需复核，红=高风险"></i></th>
-                        <th>认证需求 <i class="bi bi-question-circle" style="cursor:help;color:#bfbfbf;font-size:11px;" title="根据产品类目和目标站点匹配的必要认证，如UL/CE/FCC/REACH等"></i></th>
                         <th>增长率 <i class="bi bi-question-circle" style="cursor:help;color:#bfbfbf;font-size:11px;" title="近30天vs前30天销量变化"></i></th>
                         <th>操作</th>
                     </tr></thead>
@@ -398,15 +375,15 @@
         </div>
         <div class="stats-row">
             <div class="stat-item"><div class="stat-value">1,247</div><div class="stat-label">池内候选总数 <i class="bi bi-question-circle" style="cursor:help;color:var(--text-secondary);" title="所有开发专员加入结果池的产品总数"></i></div></div>
-            <div class="stat-item"><div class="stat-value" style="color:var(--warning);">834</div><div class="stat-label">待评估 <i class="bi bi-question-circle" style="cursor:help;color:var(--text-secondary);" title="已加入结果池但尚未完成组长评审的产品"></i></div></div>
-            <div class="stat-item"><div class="stat-value" style="color:var(--primary);">205</div><div class="stat-label">已评估通过 <i class="bi bi-question-circle" style="cursor:help;color:var(--text-secondary);" title="组长评审通过，等待进入开品流程的产品"></i></div></div>
-            <div class="stat-item"><div class="stat-value" style="color:var(--success);">208</div><div class="stat-label">已开品 <i class="bi bi-question-circle" style="cursor:help;color:var(--text-secondary);" title="已进入ERP开品流程的产品数量"></i></div></div>
+            <div class="stat-item"><div class="stat-value" style="color:var(--primary);">413</div><div class="stat-label">已推送 <i class="bi bi-question-circle" style="cursor:help;color:var(--text-secondary);" title="已成功推送至ERP产品库的产品数量"></i></div></div>
+            <div class="stat-item"><div class="stat-value" style="color:var(--text-secondary);">126</div><div class="stat-label">已作废 <i class="bi bi-question-circle" style="cursor:help;color:var(--text-secondary);" title="因侵权、重复开品等原因标记作废的产品"></i></div></div>
+            <div class="stat-item"><div class="stat-value" style="color:var(--success);">208</div><div class="stat-label">推送并开品完成 <i class="bi bi-question-circle" style="cursor:help;color:var(--text-secondary);" title="已推送至ERP并完成品质、编辑、知产等流程的产品"></i></div></div>
         </div>
         <div class="ant-card">
             <div class="ant-card-head"><div class="ant-card-head-title"><i class="bi bi-funnel"></i> 筛选</div></div>
             <div class="ant-card-body" style="padding:16px;">
                 <div style="display:flex;gap:12px;flex-wrap:wrap;align-items:center;">
-                    <select class="ant-input" style="width:140px;"><option>全部状态</option><option>待评估</option><option>已通过</option><option>已拒绝</option><option>已开品</option></select>
+                    <select class="ant-input" style="width:140px;"><option>全部推送状态</option><option>待推送</option><option>推送成功</option><option>推送失败</option><option>作废</option></select>
                     <select class="ant-input" style="width:140px;"><option>全部站点</option><option>US</option><option>UK</option><option>DE</option><option>FR</option><option>IT</option><option>ES</option></select>
                     <select class="ant-input" style="width:160px;"><option>全部类目</option><option>Automotive</option><option>Home & Kitchen</option><option>Industrial</option><option>Sports & Outdoors</option></select>
                     <select class="ant-input" style="width:140px;"><option>全部来源</option><option>AI筛选</option><option>人工筛选</option><option>竞品异动</option></select>
@@ -417,15 +394,46 @@
             </div>
         </div>
         <div class="ant-card" style="margin-top:16px;">
-            <div class="ant-card-head"><div class="ant-card-head-title">候选产品列表（1,247）</div></div>
-            <div class="ant-card-body" style="padding:0;">
-                <table class="ant-table">
-                    <thead><tr><th><input type="checkbox"></th><th>产品</th><th>AI评分</th><th>来源</th><th>站点</th><th>月销量</th><th>月销售额</th><th>提交人</th><th>提交日期</th><th>状态</th><th>操作</th></tr></thead>
+            <div class="ant-card-head">
+                <div class="ant-card-head-title">候选产品列表（1,247）</div>
+                <div style="display:flex;gap:8px;align-items:center;">
+                    <div style="position:relative;display:inline-block;">
+                        <button class="ant-btn ant-btn-sm" onclick="toggleColumnPicker()" title="自定义显示列"><i class="bi bi-layout-three-columns"></i> 列设置</button>
+                        <div id="columnPicker" style="display:none;position:absolute;top:36px;right:0;z-index:999;width:320px;background:#fff;border-radius:8px;box-shadow:0 6px 16px rgba(0,0,0,.12);border:1px solid var(--border);padding:16px;">
+                            <div style="font-size:13px;font-weight:600;margin-bottom:12px;padding-bottom:8px;border-bottom:1px solid var(--border);">选择展示字段</div>
+                            <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;">
+                                <label style="display:flex;align-items:center;gap:6px;font-size:12px;cursor:pointer;"><input type="checkbox" checked disabled> 产品</label>
+                                <label style="display:flex;align-items:center;gap:6px;font-size:12px;cursor:pointer;"><input type="checkbox" checked> AI评分</label>
+                                <label style="display:flex;align-items:center;gap:6px;font-size:12px;cursor:pointer;"><input type="checkbox" checked> 来源</label>
+                                <label style="display:flex;align-items:center;gap:6px;font-size:12px;cursor:pointer;"><input type="checkbox" checked> 站点</label>
+                                <label style="display:flex;align-items:center;gap:6px;font-size:12px;cursor:pointer;"><input type="checkbox" checked> 价格</label>
+                                <label style="display:flex;align-items:center;gap:6px;font-size:12px;cursor:pointer;"><input type="checkbox" checked> BSR</label>
+                                <label style="display:flex;align-items:center;gap:6px;font-size:12px;cursor:pointer;"><input type="checkbox" checked> 月销量</label>
+                                <label style="display:flex;align-items:center;gap:6px;font-size:12px;cursor:pointer;"><input type="checkbox" checked> 月销售额</label>
+                                <label style="display:flex;align-items:center;gap:6px;font-size:12px;cursor:pointer;"><input type="checkbox"> 评分</label>
+                                <label style="display:flex;align-items:center;gap:6px;font-size:12px;cursor:pointer;"><input type="checkbox"> 评分数</label>
+                                <label style="display:flex;align-items:center;gap:6px;font-size:12px;cursor:pointer;"><input type="checkbox" checked> 增长率</label>
+                                <label style="display:flex;align-items:center;gap:6px;font-size:12px;cursor:pointer;"><input type="checkbox"> 类目</label>
+                                <label style="display:flex;align-items:center;gap:6px;font-size:12px;cursor:pointer;"><input type="checkbox" checked> 提交人</label>
+                                <label style="display:flex;align-items:center;gap:6px;font-size:12px;cursor:pointer;"><input type="checkbox" checked> 提交日期</label>
+                                <label style="display:flex;align-items:center;gap:6px;font-size:12px;cursor:pointer;"><input type="checkbox" checked disabled> 推送状态</label>
+                            </div>
+                            <div style="margin-top:12px;padding-top:8px;border-top:1px solid var(--border);text-align:right;">
+                                <button class="ant-btn ant-btn-sm ant-btn-primary" onclick="toggleColumnPicker()">确定</button>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="ant-btn ant-btn-sm"><i class="bi bi-download"></i> 导出</button>
+                </div>
+            </div>
+            <div class="ant-card-body" style="padding:0;overflow-x:auto;">
+                <table class="ant-table" style="min-width:1280px;white-space:nowrap;">
+                    <thead><tr><th style="width:32px;"><input type="checkbox"></th><th style="min-width:200px;">产品</th><th style="width:60px;">AI评分</th><th style="width:80px;">来源</th><th style="width:44px;">站点</th><th style="width:70px;">价格</th><th style="width:60px;">BSR</th><th style="width:60px;">月销量</th><th style="width:70px;">月销售额</th><th style="width:60px;">增长率</th><th style="width:50px;">提交人</th><th style="width:80px;">提交日期</th><th style="width:80px;">推送状态</th><th style="width:120px;">操作</th></tr></thead>
                     <tbody>
-                        <tr><td><input type="checkbox"></td><td><div class="product-cell"><img src="https://m.media-amazon.com/images/I/71oR8dKttSL._AC_SL1500_.jpg"><div><a class="product-title">DEWALT 20V MAX Cordless Drill Combo Kit</a><div class="product-asin">B0D1KXKH7Y</div></div></div></td><td><span style="background:linear-gradient(135deg,#52c41a,#1677ff);color:#fff;padding:2px 8px;border-radius:10px;font-size:12px;font-weight:600;">82</span></td><td><span style="padding:2px 6px;border-radius:3px;font-size:10px;background:#e6f4ff;color:#0958d9;border:1px solid #91caff;"><i class="bi bi-robot"></i> AI筛选</span></td><td>US</td><td>12,500</td><td>$1.74M</td><td>系统</td><td>2026-05-20</td><td><span class="ant-tag-green" style="padding:2px 8px;border-radius:3px;font-size:11px;">已通过</span></td><td><button class="ant-btn ant-btn-sm" title="查看详情"><i class="bi bi-eye"></i></button></td></tr>
-                        <tr><td><input type="checkbox"></td><td><div class="product-cell"><img src="https://m.media-amazon.com/images/I/71Gu+QFMRSL._AC_SL1500_.jpg"><div><a class="product-title">Milwaukee M18 FUEL Hammer Drill</a><div class="product-asin">B0BYM4JCK1</div></div></div></td><td><span style="background:linear-gradient(135deg,#52c41a,#1677ff);color:#fff;padding:2px 8px;border-radius:10px;font-size:12px;font-weight:600;">78</span></td><td><span style="padding:2px 6px;border-radius:3px;font-size:10px;background:#f6ffed;color:#389e0d;border:1px solid #b7eb8f;"><i class="bi bi-person"></i> 人工筛选</span></td><td>US</td><td>8,900</td><td>$1.77M</td><td>李四</td><td>2026-05-18</td><td><span class="ant-tag-orange" style="padding:2px 8px;border-radius:3px;font-size:11px;">待评估</span></td><td><button class="ant-btn ant-btn-sm" title="查看详情"><i class="bi bi-eye"></i></button></td></tr>
-                        <tr><td><input type="checkbox"></td><td><div class="product-cell"><img src="https://m.media-amazon.com/images/I/61HaSLguSxL._AC_SL1500_.jpg"><div><a class="product-title">Bosch 12V Flexiclick 5-In-1 Drill</a><div class="product-asin">B0BN8MZLKR</div></div></div></td><td><span style="background:linear-gradient(135deg,#faad14,#fa8c16);color:#fff;padding:2px 8px;border-radius:10px;font-size:12px;font-weight:600;">65</span></td><td><span style="padding:2px 6px;border-radius:3px;font-size:10px;background:#fff2f0;color:#cf1322;border:1px solid #ffa39e;"><i class="bi bi-lightning"></i> 竞品异动</span></td><td>UK</td><td>2,100</td><td>$313K</td><td>系统</td><td>2026-05-22</td><td><span class="ant-tag-orange" style="padding:2px 8px;border-radius:3px;font-size:11px;">待评估</span></td><td><button class="ant-btn ant-btn-sm" title="查看详情"><i class="bi bi-eye"></i></button></td></tr>
-                        <tr><td><input type="checkbox"></td><td><div class="product-cell"><img src="https://m.media-amazon.com/images/I/71Vy3K4MjQL._AC_SL1500_.jpg"><div><a class="product-title">KIMO Cordless Drill Set 20V</a><div class="product-asin">B0CG9LQSHG</div></div></div></td><td><span style="background:linear-gradient(135deg,#ff4d4f,#fa541c);color:#fff;padding:2px 8px;border-radius:10px;font-size:12px;font-weight:600;">45</span></td><td><span style="padding:2px 6px;border-radius:3px;font-size:10px;background:#f6ffed;color:#389e0d;border:1px solid #b7eb8f;"><i class="bi bi-person"></i> 人工筛选</span></td><td>DE</td><td>3,200</td><td>$192K</td><td>张三</td><td>2026-05-15</td><td><span style="padding:2px 8px;border-radius:3px;font-size:11px;background:#fff2f0;color:#cf1322;border:1px solid #ffa39e;">已拒绝</span></td><td><button class="ant-btn ant-btn-sm" title="查看详情"><i class="bi bi-eye"></i></button></td></tr>
+                        <tr><td><input type="checkbox"></td><td><div class="product-cell"><img src="https://m.media-amazon.com/images/I/71oR8dKttSL._AC_SL1500_.jpg"><div><a class="product-title">DEWALT 20V MAX Cordless Drill Combo Kit</a><div class="product-asin">B0D1KXKH7Y</div></div></div></td><td><span style="background:linear-gradient(135deg,#52c41a,#1677ff);color:#fff;padding:2px 8px;border-radius:10px;font-size:12px;font-weight:600;">82</span></td><td><span style="padding:2px 6px;border-radius:3px;font-size:10px;background:#e6f4ff;color:#0958d9;border:1px solid #91caff;"><i class="bi bi-robot"></i> AI筛选</span></td><td>US</td><td>$139.00</td><td>#342</td><td>12,500</td><td>$1.74M</td><td style="color:#389e0d;font-weight:500;">+18.5%</td><td>系统</td><td>2026-05-20</td><td><span style="padding:2px 8px;border-radius:3px;font-size:11px;background:#f6ffed;color:#389e0d;border:1px solid #b7eb8f;">推送成功</span></td><td><button class="ant-btn ant-btn-sm" onclick="openModal()" title="查看详情"><i class="bi bi-eye"></i></button> <button class="ant-btn ant-btn-sm" onclick="openPushLogModal()" title="推送日志"><i class="bi bi-journal-text"></i></button></td></tr>
+                        <tr><td><input type="checkbox"></td><td><div class="product-cell"><img src="https://m.media-amazon.com/images/I/71Gu+QFMRSL._AC_SL1500_.jpg"><div><a class="product-title">Milwaukee M18 FUEL Hammer Drill</a><div class="product-asin">B0BYM4JCK1</div></div></div></td><td><span style="background:linear-gradient(135deg,#52c41a,#1677ff);color:#fff;padding:2px 8px;border-radius:10px;font-size:12px;font-weight:600;">78</span></td><td><span style="padding:2px 6px;border-radius:3px;font-size:10px;background:#f6ffed;color:#389e0d;border:1px solid #b7eb8f;"><i class="bi bi-person"></i> 人工筛选</span></td><td>US</td><td>$199.00</td><td>#567</td><td>8,900</td><td>$1.77M</td><td style="color:#389e0d;font-weight:500;">+8.9%</td><td>李四</td><td>2026-05-18</td><td><span style="padding:2px 8px;border-radius:3px;font-size:11px;background:#fafafa;color:#8c8c8c;border:1px solid #d9d9d9;">待推送</span></td><td><button class="ant-btn ant-btn-sm" onclick="openModal()" title="查看详情"><i class="bi bi-eye"></i></button> <button class="ant-btn ant-btn-sm" style="color:var(--primary);border-color:var(--primary);" onclick="doPush(this)" title="推送到ERP"><i class="bi bi-send"></i></button></td></tr>
+                        <tr><td><input type="checkbox"></td><td><div class="product-cell"><img src="https://m.media-amazon.com/images/I/61HaSLguSxL._AC_SL1500_.jpg"><div><a class="product-title">Bosch 12V Flexiclick 5-In-1 Drill</a><div class="product-asin">B0BN8MZLKR</div></div></div></td><td><span style="background:linear-gradient(135deg,#faad14,#fa8c16);color:#fff;padding:2px 8px;border-radius:10px;font-size:12px;font-weight:600;">65</span></td><td><span style="padding:2px 6px;border-radius:3px;font-size:10px;background:#fff2f0;color:#cf1322;border:1px solid #ffa39e;"><i class="bi bi-lightning"></i> 竞品异动</span></td><td>UK</td><td>$149.00</td><td>#2,847</td><td>2,100</td><td>$313K</td><td style="color:#389e0d;font-weight:500;">+12.8%</td><td>系统</td><td>2026-05-22</td><td><span style="padding:2px 8px;border-radius:3px;font-size:11px;background:#fff2f0;color:#cf1322;border:1px solid #ffa39e;">推送失败</span></td><td><button class="ant-btn ant-btn-sm" onclick="openModal()" title="查看详情"><i class="bi bi-eye"></i></button> <button class="ant-btn ant-btn-sm" style="color:var(--primary);border-color:var(--primary);" onclick="doPush(this)" title="重新推送"><i class="bi bi-arrow-repeat"></i></button> <button class="ant-btn ant-btn-sm" onclick="openPushLogModal()" title="推送日志"><i class="bi bi-journal-text"></i></button></td></tr>
+                        <tr><td><input type="checkbox"></td><td><div class="product-cell"><img src="https://m.media-amazon.com/images/I/71Vy3K4MjQL._AC_SL1500_.jpg"><div><a class="product-title">KIMO Cordless Drill Set 20V</a><div class="product-asin">B0CG9LQSHG</div></div></div></td><td><span style="background:linear-gradient(135deg,#ff4d4f,#fa541c);color:#fff;padding:2px 8px;border-radius:10px;font-size:12px;font-weight:600;">45</span></td><td><span style="padding:2px 6px;border-radius:3px;font-size:10px;background:#f6ffed;color:#389e0d;border:1px solid #b7eb8f;"><i class="bi bi-person"></i> 人工筛选</span></td><td>DE</td><td>$59.99</td><td>#4,521</td><td>3,200</td><td>$192K</td><td style="color:#389e0d;font-weight:500;">+25.3%</td><td>张三</td><td>2026-05-15</td><td><span style="padding:2px 8px;border-radius:3px;font-size:11px;background:#f5f5f5;color:#595959;border:1px solid #d9d9d9;" title="品牌违禁库命中，Milwaukee强知产保护">作废 <i class="bi bi-info-circle" style="cursor:help;font-size:10px;"></i></span></td><td><button class="ant-btn ant-btn-sm" onclick="openModal()" title="查看详情"><i class="bi bi-eye"></i></button></td></tr>
                     </tbody>
                 </table>
             </div>
@@ -604,50 +612,6 @@
             </div>
         </div>
 
-        <!-- Competitor Anomaly Opportunity Engine -->
-        <div class="ant-card" style="margin-top:16px;border-left:3px solid var(--error);">
-            <div class="ant-card-head"><div class="ant-card-head-title"><i class="bi bi-lightning-charge-fill" style="color:var(--error);"></i> 竞品异动机会捕捉引擎</div><div style="font-size:12px;color:var(--text-secondary);">实时监控 · 海外仓时效优势驱动 · 快速抢坑</div></div>
-            <div class="ant-card-body">
-                <div style="background:linear-gradient(135deg,#fff8f0,#f6ffed);border-radius:8px;padding:16px;margin-bottom:16px;">
-                    <div style="font-size:13px;font-weight:600;margin-bottom:8px;"><i class="bi bi-lightbulb" style="color:var(--warning);"></i> 核心逻辑</div>
-                    <p style="font-size:12px;line-height:1.8;margin:0;color:var(--text);">监控细分类目 Top 竞品的 BSR/销量/库存状态，当检测到<strong>断货、销量骤降、下架</strong>等异动时，自动评估市场空缺规模，结合我司海外仓库存和补货时效，判断是否存在<strong>快速抢占流量坑位</strong>的窗口期机会。</p>
-                    <div style="display:flex;gap:16px;margin-top:12px;">
-                        <div style="background:#fff;border-radius:6px;padding:10px 16px;flex:1;text-align:center;"><div style="font-size:18px;font-weight:700;color:var(--success);">2-3天</div><div style="font-size:11px;color:var(--text-secondary);">我司海外仓上架</div></div>
-                        <div style="background:#fff;border-radius:6px;padding:10px 16px;flex:1;text-align:center;"><div style="font-size:18px;font-weight:700;color:var(--error);">25-35天</div><div style="font-size:11px;color:var(--text-secondary);">竞品中国发FBA</div></div>
-                        <div style="background:#fff;border-radius:6px;padding:10px 16px;flex:1;text-align:center;"><div style="font-size:18px;font-weight:700;color:var(--primary);">20-30天</div><div style="font-size:11px;color:var(--text-secondary);">窗口期优势</div></div>
-                    </div>
-                </div>
-
-                <div style="font-size:12px;font-weight:600;margin-bottom:8px;">触发条件配置</div>
-                <table class="ant-table" style="font-size:12px;">
-                    <thead><tr><th>异动类型</th><th>触发条件</th><th>响应动作</th><th>时效要求</th><th>状态</th></tr></thead>
-                    <tbody>
-                        <tr><td><span style="color:var(--error);font-weight:600;"><i class="bi bi-x-circle"></i> 断货</span></td><td>Top50竞品库存归零 &gt; 24小时</td><td>自动生成机会卡 + 飞书告警 + 匹配海外仓库存</td><td style="color:var(--success);font-weight:600;">2天内响应</td><td><span class="ant-tag-green" style="padding:2px 8px;border-radius:3px;font-size:11px;">启用</span></td></tr>
-                        <tr><td><span style="color:var(--warning);font-weight:600;"><i class="bi bi-graph-down-arrow"></i> 销量骤降</span></td><td>7天滚动销量下降 &gt; 50%（排除季节性）</td><td>自动生成机会卡 + 评估原因（差评/涨价/违规）</td><td style="color:var(--success);font-weight:600;">3天内响应</td><td><span class="ant-tag-green" style="padding:2px 8px;border-radius:3px;font-size:11px;">启用</span></td></tr>
-                        <tr><td><span style="color:var(--text-secondary);font-weight:600;"><i class="bi bi-dash-circle"></i> 下架/不可售</span></td><td>listing状态变为不可售或被移除</td><td>自动生成机会卡 + 分析下架原因（侵权/违规/自主）</td><td style="color:var(--primary);font-weight:600;">5天内评估</td><td><span class="ant-tag-green" style="padding:2px 8px;border-radius:3px;font-size:11px;">启用</span></td></tr>
-                        <tr><td><span style="color:var(--primary);font-weight:600;"><i class="bi bi-arrow-up-circle"></i> 价格大涨</span></td><td>竞品售价上涨 &gt; 20%（非促销恢复）</td><td>评估是否为供应链成本上涨，我司是否有成本优势</td><td>7天内评估</td><td><span class="ant-tag-orange" style="padding:2px 8px;border-radius:3px;font-size:11px;">停用</span></td></tr>
-                    </tbody>
-                </table>
-
-                <div style="font-size:12px;font-weight:600;margin:16px 0 8px;">响应决策矩阵（海外仓优势匹配）</div>
-                <table class="ant-table" style="font-size:12px;">
-                    <thead><tr><th>场景</th><th>我司库存状态</th><th>响应方案</th><th>预估上架时效</th><th>优先级</th></tr></thead>
-                    <tbody>
-                        <tr><td>目标仓有同款/相似品</td><td style="color:var(--success);">美仓/欧仓有货</td><td>直接上架抢坑，调整价格和广告</td><td style="font-weight:600;">1-2天</td><td><span style="background:#fff2f0;color:#cf1322;padding:2px 6px;border-radius:3px;font-size:11px;font-weight:600;">P0 立即</span></td></tr>
-                        <tr><td>其他仓有货可调拨</td><td style="color:var(--primary);">英仓/澳仓有货</td><td>跨仓调拨 + 同步上架准备</td><td style="font-weight:600;">5-7天</td><td><span style="background:#fff7e6;color:#d46b08;padding:2px 6px;border-radius:3px;font-size:11px;font-weight:600;">P1 快速</span></td></tr>
-                        <tr><td>无库存但有合作供应商</td><td style="color:var(--warning);">头部供应商有货</td><td>紧急采购 + 空运/快船补货</td><td style="font-weight:600;">10-15天</td><td><span style="background:#e6f4ff;color:#0958d9;padding:2px 6px;border-radius:3px;font-size:11px;font-weight:600;">P2 跟进</span></td></tr>
-                        <tr><td>需新开品</td><td style="color:var(--text-secondary);">无库存无供应商</td><td>评估是否值得快速开品（一件代发过渡）</td><td style="font-weight:600;">15-20天</td><td><span style="background:#f5f5f5;color:#595959;padding:2px 6px;border-radius:3px;font-size:11px;">P3 评估</span></td></tr>
-                    </tbody>
-                </table>
-
-                <div style="font-size:12px;font-weight:600;margin:16px 0 8px;">监控范围配置</div>
-                <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;">
-                    <div style="background:var(--bg-layout);border-radius:6px;padding:10px 12px;"><div style="font-size:11px;color:var(--text-secondary);margin-bottom:4px;">监控类目</div><select class="ant-input" style="font-size:12px;"><option>4个核心类目 Top50</option><option>全部类目 Top20</option><option>自定义ASIN列表</option></select></div>
-                    <div style="background:var(--bg-layout);border-radius:6px;padding:10px 12px;"><div style="font-size:11px;color:var(--text-secondary);margin-bottom:4px;">检测频率</div><select class="ant-input" style="font-size:12px;"><option>每6小时</option><option>每12小时</option><option>每24小时</option></select></div>
-                    <div style="background:var(--bg-layout);border-radius:6px;padding:10px 12px;"><div style="font-size:11px;color:var(--text-secondary);margin-bottom:4px;">告警通道</div><select class="ant-input" style="font-size:12px;"><option>飞书群 + 系统通知</option><option>仅飞书群</option><option>仅系统内</option></select></div>
-                </div>
-            </div>
-        </div>
       </div><!-- end page-ai-rules -->
 
       <!-- PAGE: 货源寻源 -->
@@ -775,175 +739,242 @@
 
       <!-- Page: 竞品洞察 -->
       <div id="page-review-mining" style="display:none;">
-        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:20px;">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px;">
             <div>
                 <h2 style="margin:0;font-size:20px;font-weight:600;">竞品洞察</h2>
-                <p style="margin:4px 0 0;color:var(--text-secondary);font-size:13px;">异动监控 → 评论挖掘 → AI开品建议 全链路</p>
-            </div>
-            <div style="display:flex;gap:8px;">
-                <button class="ant-btn" onclick="openCreateMonitorModal()" style="background:var(--primary);color:#fff;border-color:var(--primary);"><i class="bi bi-plus-circle"></i> 新建监控</button>
+                <p style="margin:4px 0 0;color:var(--text-secondary);font-size:13px;">异动监控 · BSR追踪 · 刊登变化 · 全链路竞品分析</p>
             </div>
         </div>
-        <!-- Filters -->
-        <div style="display:flex;gap:12px;margin-bottom:16px;align-items:center;">
-            <select class="ant-input" style="width:140px;" onchange="filterMonitors(this.value,'type')">
-                <option value="all">全部类型</option>
-                <option value="bsr">BSR榜单监控</option>
-                <option value="listing">刊登链接监控</option>
-            </select>
-            <select class="ant-input" style="width:140px;" onchange="filterMonitors(this.value,'owner')">
-                <option value="all">全部任务</option>
-                <option value="mine">我创建的</option>
-                <option value="team">团队的</option>
-                <option value="global">全局(系统)</option>
-            </select>
-            <span style="font-size:12px;color:var(--text-secondary);margin-left:auto;">当前用户：朝野（AI产品经理）</span>
+        <!-- Tab 导航 -->
+        <div style="display:flex;gap:0;border-bottom:1px solid #e8e8e8;margin-bottom:16px;">
+            <div class="insight-tab active" onclick="switchInsightTab('anomaly',this)" style="padding:10px 20px;font-size:13px;font-weight:500;cursor:pointer;border-bottom:2px solid var(--primary);color:var(--primary);"><i class="bi bi-lightning-charge"></i> 异动机会 <span style="background:var(--error);color:#fff;padding:1px 6px;border-radius:8px;font-size:10px;margin-left:4px;">17</span></div>
+            <div class="insight-tab" onclick="switchInsightTab('bsr',this)" style="padding:10px 20px;font-size:13px;font-weight:500;cursor:pointer;border-bottom:2px solid transparent;color:var(--text-secondary);">BSR 榜单监控</div>
+            <div class="insight-tab" onclick="switchInsightTab('listing',this)" style="padding:10px 20px;font-size:13px;font-weight:500;cursor:pointer;border-bottom:2px solid transparent;color:var(--text-secondary);">刊登链接监控</div>
+            <div class="insight-tab" onclick="switchInsightTab('manage',this)" style="padding:10px 20px;font-size:13px;font-weight:500;cursor:pointer;border-bottom:2px solid transparent;color:var(--text-secondary);"><i class="bi bi-gear"></i> 监控管理</div>
         </div>
-        <!-- Monitor Task Cards -->
-        <div id="monitorCards" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:14px;margin-bottom:20px;">
-            <!-- Card 1: BSR Global -->
-            <div class="ant-card" style="cursor:pointer;transition:box-shadow 0.2s;" onclick="showMonitorDetail('bsr-cushion')" onmouseover="this.style.boxShadow='0 4px 12px rgba(0,0,0,0.1)'" onmouseout="this.style.boxShadow=''">
-                <div class="ant-card-body" style="padding:16px;">
-                    <div style="display:flex;justify-content:space-between;align-items:flex-start;">
-                        <div>
-                            <span style="display:inline-block;padding:2px 6px;border-radius:3px;font-size:10px;background:#e6f4ff;color:var(--primary);margin-bottom:6px;">BSR榜单</span>
-                            <span style="display:inline-block;padding:2px 6px;border-radius:3px;font-size:10px;background:#f6ffed;color:#389e0d;margin-bottom:6px;margin-left:4px;">全局</span>
-                            <div style="font-size:14px;font-weight:600;">坐垫类目 Top100 监控</div>
-                            <div style="font-size:12px;color:var(--text-secondary);margin-top:4px;">US站 · Cushions · 每日快照</div>
-                        </div>
-                        <div style="text-align:right;">
-                            <div style="font-size:22px;font-weight:700;color:#cf1322;">57</div>
-                            <div style="font-size:11px;color:var(--text-secondary);">本月异动</div>
-                        </div>
+
+        <!-- Tab Panel: 异动机会 -->
+        <div id="insight-panel-anomaly">
+            <!-- 响应策略说明 -->
+            <div style="background:#f8f9fa;border-radius:8px;padding:14px 16px;margin-bottom:16px;border:1px solid #e8e8e8;">
+                <div style="font-size:13px;font-weight:600;margin-bottom:10px;">异动响应策略</div>
+                <div style="display:flex;gap:16px;">
+                    <div style="flex:1;padding:10px 14px;background:#f6ffed;border-radius:6px;border:1px solid #b7eb8f;">
+                        <div style="font-size:12px;font-weight:600;color:#389e0d;margin-bottom:6px;"><i class="bi bi-check-circle-fill"></i> 路径A：海外仓有相似品</div>
+                        <div style="font-size:11px;color:var(--text);line-height:1.7;">以图搜图匹配我司各国海外仓库存 → 有相似品+有库存 → <strong>建议通知运营</strong>刊登到该类目</div>
                     </div>
-                    <div style="display:flex;gap:16px;margin-top:12px;padding-top:10px;border-top:1px solid #f0f0f0;font-size:11px;color:var(--text-secondary);">
-                        <span>创建人：系统管理员</span>
-                        <span>更新：2026-05-01</span>
-                        <span style="color:#52c41a;"><i class="bi bi-circle-fill" style="font-size:6px;vertical-align:middle;"></i> 运行中</span>
+                    <div style="flex:1;padding:10px 14px;background:#e6f4ff;border-radius:6px;border:1px solid #91caff;">
+                        <div style="font-size:12px;font-weight:600;color:#0958d9;margin-bottom:6px;"><i class="bi bi-arrow-repeat"></i> 路径B：海外仓无相似品</div>
+                        <div style="font-size:11px;color:var(--text);line-height:1.7;">以图搜图无匹配 → <strong>一键加入选品结果池</strong>，采购30天+海运60天=90天窗口期（FBM先行）</div>
                     </div>
                 </div>
             </div>
-            <!-- Card 2: Listing -->
-            <div class="ant-card" style="cursor:pointer;transition:box-shadow 0.2s;" onclick="showMonitorDetail('listing-competitors')" onmouseover="this.style.boxShadow='0 4px 12px rgba(0,0,0,0.1)'" onmouseout="this.style.boxShadow=''">
-                <div class="ant-card-body" style="padding:16px;">
-                    <div style="display:flex;justify-content:space-between;align-items:flex-start;">
-                        <div>
-                            <span style="display:inline-block;padding:2px 6px;border-radius:3px;font-size:10px;background:#fff2f0;color:#cf1322;margin-bottom:6px;">刊登链接</span>
-                            <span style="display:inline-block;padding:2px 6px;border-radius:3px;font-size:10px;background:#fffbe6;color:#d48806;margin-bottom:6px;margin-left:4px;">团队</span>
-                            <div style="font-size:14px;font-weight:600;">坐垫核心竞品 ASIN 监控</div>
-                            <div style="font-size:12px;color:var(--text-secondary);margin-top:4px;">US站 · 5个ASIN · 每12小时</div>
-                        </div>
-                        <div style="text-align:right;">
-                            <div style="font-size:22px;font-weight:700;color:#fa541c;">3</div>
-                            <div style="font-size:11px;color:var(--text-secondary);">待关注</div>
-                        </div>
-                    </div>
-                    <div style="display:flex;gap:16px;margin-top:12px;padding-top:10px;border-top:1px solid #f0f0f0;font-size:11px;color:var(--text-secondary);">
-                        <span>创建人：张三（运营组长）</span>
-                        <span>更新：2026-06-03</span>
-                        <span style="color:#52c41a;"><i class="bi bi-circle-fill" style="font-size:6px;vertical-align:middle;"></i> 运行中</span>
-                    </div>
-                </div>
+            <!-- 筛选栏 -->
+            <div style="display:flex;gap:10px;margin-bottom:14px;align-items:center;">
+                <select class="ant-input" style="width:130px;font-size:12px;">
+                    <option>全部异动类型</option>
+                    <option>断货</option>
+                    <option>销量骤降</option>
+                    <option>下架</option>
+                    <option>价格大涨</option>
+                </select>
+                <select class="ant-input" style="width:120px;font-size:12px;">
+                    <option>全部类目</option>
+                    <option>Power Drills</option>
+                    <option>Hammer Drills</option>
+                    <option>Drill Drivers</option>
+                </select>
+                <select class="ant-input" style="width:120px;font-size:12px;">
+                    <option>全部站点</option>
+                    <option>美国站</option>
+                    <option>英国站</option>
+                    <option>德国站</option>
+                </select>
+                <button class="ant-btn ant-btn-sm" style="margin-left:auto;" onclick="openMonitorSettings()"><i class="bi bi-gear"></i> 监控设置</button>
             </div>
-            <!-- Card 3: BSR team -->
-            <div class="ant-card" style="cursor:pointer;transition:box-shadow 0.2s;" onclick="showMonitorDetail('bsr-home')" onmouseover="this.style.boxShadow='0 4px 12px rgba(0,0,0,0.1)'" onmouseout="this.style.boxShadow=''">
-                <div class="ant-card-body" style="padding:16px;">
-                    <div style="display:flex;justify-content:space-between;align-items:flex-start;">
-                        <div>
-                            <span style="display:inline-block;padding:2px 6px;border-radius:3px;font-size:10px;background:#e6f4ff;color:var(--primary);margin-bottom:6px;">BSR榜单</span>
-                            <span style="display:inline-block;padding:2px 6px;border-radius:3px;font-size:10px;background:#f0f0f0;color:#666;margin-bottom:6px;margin-left:4px;">我的</span>
-                            <div style="font-size:14px;font-weight:600;">家居收纳 Top50 新品监控</div>
-                            <div style="font-size:12px;color:var(--text-secondary);margin-top:4px;">US站 · Home Storage · 每周</div>
-                        </div>
-                        <div style="text-align:right;">
-                            <div style="font-size:22px;font-weight:700;color:#1677ff;">12</div>
-                            <div style="font-size:11px;color:var(--text-secondary);">新品进入</div>
-                        </div>
-                    </div>
-                    <div style="display:flex;gap:16px;margin-top:12px;padding-top:10px;border-top:1px solid #f0f0f0;font-size:11px;color:var(--text-secondary);">
-                        <span>创建人：李四（开发专员）</span>
-                        <span>更新：2026-06-02</span>
-                        <span style="color:#52c41a;"><i class="bi bi-circle-fill" style="font-size:6px;vertical-align:middle;"></i> 运行中</span>
-                    </div>
-                </div>
+                <!-- 异动数据表 -->
+                <table class="ant-table" style="font-size:12px;">
+                    <thead><tr><th>竞品</th><th>类目</th><th>异动类型</th><th>原日均销量</th><th>当前状态</th><th>市场空缺</th><th>我司响应方案</th><th>操作</th></tr></thead>
+                    <tbody>
+                        <tr>
+                            <td><div style="font-weight:600;">DEWALT DCD771C2</div><div style="font-size:11px;color:var(--text-secondary);">B0D1KXKH7Y · BSR #342</div></td>
+                            <td>Power Drills</td>
+                            <td><span style="color:var(--error);font-weight:600;">断货</span></td>
+                            <td>420件/天</td>
+                            <td><span style="color:var(--error);">库存归零 3天</span></td>
+                            <td style="font-weight:600;">$58,380/天</td>
+                            <td><span style="color:#389e0d;font-size:11px;">路径A·美东18仓有相似品</span></td>
+                            <td><button class="ant-btn ant-btn-sm" style="color:#389e0d;border-color:#389e0d;font-size:11px;" title="暂未对接ERP运营工单">建议通知运营</button></td>
+                        </tr>
+                        <tr>
+                            <td><div style="font-weight:600;">Milwaukee 2904-20</div><div style="font-size:11px;color:var(--text-secondary);">B0BYM4JCK1 · BSR #567</div></td>
+                            <td>Hammer Drills</td>
+                            <td><span style="color:var(--warning);font-weight:600;">骤降72%</span></td>
+                            <td>295件/天</td>
+                            <td><span style="color:var(--warning);">近7天仅83件/天</span></td>
+                            <td style="font-weight:600;">$42,140/天</td>
+                            <td><span style="color:#389e0d;font-size:11px;">路径A·美西仓有相似品</span></td>
+                            <td><button class="ant-btn ant-btn-sm" style="color:#389e0d;border-color:#389e0d;font-size:11px;" title="暂未对接ERP运营工单">建议通知运营</button></td>
+                        </tr>
+                        <tr>
+                            <td><div style="font-weight:600;">Bosch GSR12V-300</div><div style="font-size:11px;color:var(--text-secondary);">B0BN8MZLKR · BSR #2847</div></td>
+                            <td>Drill Drivers</td>
+                            <td><span style="color:var(--text-secondary);font-weight:600;">下架</span></td>
+                            <td>70件/天</td>
+                            <td><span style="color:var(--text-secondary);">listing不可售 5天</span></td>
+                            <td style="font-weight:600;">$10,430/天</td>
+                            <td><span style="color:#0958d9;font-size:11px;">路径B·无相似品·90天窗口</span></td>
+                            <td><button class="ant-btn ant-btn-sm" style="background:#1677ff;color:#fff;border-color:#1677ff;font-size:11px;">加入结果池</button></td>
+                        </tr>
+                        <tr>
+                            <td><div style="font-weight:600;">Makita XPH14Z</div><div style="font-size:11px;color:var(--text-secondary);">B09XXXX · BSR #1890</div></td>
+                            <td>Drill Drivers</td>
+                            <td><span style="color:var(--warning);font-weight:600;">骤降58%</span></td>
+                            <td>115件/天</td>
+                            <td><span style="color:var(--warning);">近7天仅48件/天</span></td>
+                            <td style="font-weight:600;">$10,653/天</td>
+                            <td><span style="color:#389e0d;font-size:11px;">路径A·英仓有相似品</span></td>
+                            <td><button class="ant-btn ant-btn-sm" style="color:#389e0d;border-color:#389e0d;font-size:11px;" title="暂未对接ERP运营工单">建议通知运营</button></td>
+                        </tr>
+                        <tr>
+                            <td><div style="font-weight:600;">CRAFTSMAN V20 Drill</div><div style="font-size:11px;color:var(--text-secondary);">B0CXXXXX · BSR #3200</div></td>
+                            <td>Power Drills</td>
+                            <td><span style="color:var(--error);font-weight:600;">断货</span></td>
+                            <td>85件/天</td>
+                            <td><span style="color:var(--error);">库存归零 1天</span></td>
+                            <td style="font-weight:600;">$5,100/天</td>
+                            <td><span style="color:#0958d9;font-size:11px;">路径B·无相似品·90天窗口</span></td>
+                            <td><button class="ant-btn ant-btn-sm" style="background:#1677ff;color:#fff;border-color:#1677ff;font-size:11px;">加入结果池</button></td>
+                        </tr>
+                    </tbody>
+                </table>
+            <!-- 底部 -->
+            <div style="display:flex;justify-content:space-between;align-items:center;margin-top:14px;padding-top:12px;border-top:1px solid #f0f0f0;">
+                <span style="font-size:11px;color:var(--text-secondary);">监控范围：4 个核心类目 Top50 竞品 · 每6小时检测</span>
             </div>
-            <!-- Card 4: Seller Monitor (V2 Placeholder) -->
-            <div class="ant-card" style="cursor:pointer;transition:box-shadow 0.2s;opacity:0.7;border:1px dashed #d9d9d9;" onmouseover="this.style.boxShadow='0 4px 12px rgba(0,0,0,0.08)'" onmouseout="this.style.boxShadow=''">
-                <div class="ant-card-body" style="padding:16px;">
-                    <div style="display:flex;justify-content:space-between;align-items:flex-start;">
-                        <div>
-                            <span style="display:inline-block;padding:2px 6px;border-radius:3px;font-size:10px;background:#f9f0ff;color:#722ed1;margin-bottom:6px;">卖家监控</span>
-                            <span style="display:inline-block;padding:2px 6px;border-radius:3px;font-size:10px;background:#f0f0f0;color:#999;margin-bottom:6px;margin-left:4px;">V2规划</span>
-                            <div style="font-size:14px;font-weight:600;">竞争对手卖家动态监控</div>
-                            <div style="font-size:12px;color:var(--text-secondary);margin-top:4px;">监控指定卖家店铺的新品/价格/Listing变更</div>
-                        </div>
-                        <div style="text-align:right;">
-                            <div style="font-size:18px;color:#bbb;"><i class="bi bi-lock"></i></div>
-                            <div style="font-size:11px;color:#999;">即将上线</div>
-                        </div>
-                    </div>
-                    <div style="margin-top:12px;padding-top:10px;border-top:1px solid #f0f0f0;font-size:11px;color:#999;">
-                        V2功能：输入卖家店铺ID → 监控上新/下架/价格调整/广告位变化 → 分析竞争策略
-                    </div>
-                </div>
+        </div><!-- end insight-panel-anomaly -->
+
+        <!-- Tab Panel: BSR 榜单监控 -->
+        <div id="insight-panel-bsr" style="display:none;">
+            <!-- 监控选择器 -->
+            <div style="display:flex;gap:12px;margin-bottom:16px;align-items:center;">
+                <select class="ant-input" style="width:240px;font-size:12px;" onchange="this.value">
+                    <option>坐垫类目 Top100（系统管理员 · 全局）</option>
+                    <option>家居收纳 Top50 新品（李四 · 我的）</option>
+                    <option>电钻类目 Top50（张三 · 团队）</option>
+                </select>
+                <span style="font-size:11px;color:var(--text-secondary);">US站 · Cushions · 每日快照 · 最近更新：2026-06-01</span>
             </div>
-        </div>
-        <!-- Detail Area -->
-        <div id="monitorDetailArea" style="display:none;">
-            <!-- BSR Cushion Detail -->
-            <div id="detail-bsr-cushion" style="display:none;">
-                <div class="ant-card" style="margin-bottom:16px;">
-                    <div class="ant-card-head" style="display:flex;justify-content:space-between;align-items:center;">
-                        <span>坐垫类目 BSR Top100 · 4月→5月异动对比</span>
-                        <button class="ant-btn ant-btn-sm" onclick="hideMonitorDetail()"><i class="bi bi-x"></i> 收起</button>
-                    </div>
-                    <div class="ant-card-body" style="padding:12px;">
-                        <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:14px;">
-                            <div style="text-align:center;padding:10px;background:#f8faff;border-radius:6px;"><div style="font-size:20px;font-weight:700;color:var(--primary);">43</div><div style="font-size:11px;color:var(--text-secondary);">稳定在榜</div></div>
-                            <div style="text-align:center;padding:10px;background:#fff8f0;border-radius:6px;"><div style="font-size:20px;font-weight:700;color:#fa541c;">57</div><div style="font-size:11px;color:var(--text-secondary);">退出榜单</div></div>
-                            <div style="text-align:center;padding:10px;background:#f0fff4;border-radius:6px;"><div style="font-size:20px;font-weight:700;color:#52c41a;">57</div><div style="font-size:11px;color:var(--text-secondary);">新进榜单</div></div>
-                            <div style="text-align:center;padding:10px;background:#fffbe6;border-radius:6px;"><div style="font-size:20px;font-weight:700;color:#d48806;">37%</div><div style="font-size:11px;color:var(--text-secondary);">价格变动</div></div>
-                        </div>
-                        <div style="max-height:400px;overflow-y:auto;">
-                            <table class="ant-table">
-                                <thead><tr><th>ASIN</th><th>品牌</th><th>4月排名</th><th>5月排名</th><th>异常类型</th><th>评分</th><th>价格</th><th>操作</th></tr></thead>
-                                <tbody>
-                                    <tr><td>B0G4GTTN61 <a href="https://www.amazon.com/dp/B0G4GTTN61" target="_blank" title="跳转亚马逊" style="color:var(--primary);"><i class="bi bi-box-arrow-up-right"></i></a></td><td>MIULEE</td><td>#72</td><td>#6</td><td><span style="padding:2px 6px;border-radius:3px;font-size:10px;background:#fff2f0;color:#cf1322;cursor:help;" title="单月排名上升超过50位，可能为新品爆发或竞品退出导致的市场空缺">爆品信号</span></td><td>4.3</td><td>$35.99</td><td><button class="ant-btn ant-btn-sm" onclick="openInsightModal('B0G4GTTN61')"><i class="bi bi-file-earmark-text"></i> 洞察报告</button></td></tr>
-                                    <tr><td>B0DQP33H1J <a href="https://www.amazon.com/dp/B0DQP33H1J" target="_blank" title="跳转亚马逊" style="color:var(--primary);"><i class="bi bi-box-arrow-up-right"></i></a></td><td>Summsun</td><td>#70</td><td>#25</td><td><span style="padding:2px 6px;border-radius:3px;font-size:10px;background:#fff2f0;color:#cf1322;cursor:help;" title="排名持续上升20+位，竞品表现强劲需关注其策略">快速攀升</span></td><td>4.3</td><td>$26.99</td><td><button class="ant-btn ant-btn-sm" onclick="openInsightModal('B0DQP33H1J')"><i class="bi bi-file-earmark-text"></i> 洞察报告</button></td></tr>
-                                    <tr><td>B0DNVDYZWT <a href="https://www.amazon.com/dp/B0DNVDYZWT" target="_blank" title="跳转亚马逊" style="color:var(--primary);"><i class="bi bi-box-arrow-up-right"></i></a></td><td>MTMR</td><td>#75</td><td>#32</td><td><span style="padding:2px 6px;border-radius:3px;font-size:10px;background:#fffbe6;color:#d48806;cursor:help;" title="排名上升但评分偏低(4.1)，存在产品缺陷但需求旺盛=开品机会">低评高升</span></td><td>4.1</td><td>$46.99</td><td><button class="ant-btn ant-btn-sm" onclick="openInsightModal('B0DNVDYZWT')"><i class="bi bi-file-earmark-text"></i> 洞察报告</button></td></tr>
-                                    <tr><td>B0DQP37YND <a href="https://www.amazon.com/dp/B0DQP37YND" target="_blank" title="跳转亚马逊" style="color:var(--primary);"><i class="bi bi-box-arrow-up-right"></i></a></td><td>Summsun</td><td>#29</td><td>#3</td><td><span style="padding:2px 6px;border-radius:3px;font-size:10px;background:#fff2f0;color:#cf1322;cursor:help;" title="进入Top5且价格低于均价，可能通过低价抢占市场份额">低价冲榜</span></td><td>4.6</td><td>$26.99</td><td><button class="ant-btn ant-btn-sm" onclick="openInsightModal('B0DQP37YND')"><i class="bi bi-file-earmark-text"></i> 洞察报告</button></td></tr>
-                                    <tr style="background:#fff8f8;"><td>B0DSGD9796 <a href="https://www.amazon.com/dp/B0DSGD9796" target="_blank" title="跳转亚马逊" style="color:var(--primary);"><i class="bi bi-box-arrow-up-right"></i></a></td><td>—</td><td>#7</td><td>#54</td><td><span style="padding:2px 6px;border-radius:3px;font-size:10px;background:#e6f4ff;color:#1677ff;cursor:help;" title="排名大幅下跌47位，可能断货/差评爆发/被跟卖，市场空缺机会">断崖下跌</span></td><td>4.5</td><td>$39.99</td><td><button class="ant-btn ant-btn-sm" onclick="openInsightModal('B0DSGD9796')"><i class="bi bi-file-earmark-text"></i> 洞察报告</button></td></tr>
-                                    <tr style="background:#fff8f8;"><td>B0DZH9LNN2 <a href="https://www.amazon.com/dp/B0DZH9LNN2" target="_blank" title="跳转亚马逊" style="color:var(--primary);"><i class="bi bi-box-arrow-up-right"></i></a></td><td>—</td><td>#39</td><td>#88</td><td><span style="padding:2px 6px;border-radius:3px;font-size:10px;background:#e6f4ff;color:#1677ff;cursor:help;" title="排名持续下跌，可能面临供应链或质量问题，观察是否退出">持续衰退</span></td><td>4.3</td><td>$44.99</td><td><button class="ant-btn ant-btn-sm" onclick="openInsightModal('B0DZH9LNN2')"><i class="bi bi-file-earmark-text"></i> 洞察报告</button></td></tr>
-                                    <tr style="background:#f0fff4;"><td>B0FZSTKFYV <a href="https://www.amazon.com/dp/B0FZSTKFYV" target="_blank" title="跳转亚马逊" style="color:var(--primary);"><i class="bi bi-box-arrow-up-right"></i></a></td><td>idee-home</td><td>—</td><td>#11</td><td><span style="padding:2px 6px;border-radius:3px;font-size:10px;background:#f6ffed;color:#389e0d;cursor:help;" title="本月新进入Top100榜单，需评估是新品还是老品回归">新品入榜</span></td><td>4.4</td><td>$49.99</td><td><button class="ant-btn ant-btn-sm" onclick="openInsightModal('B0FZSTKFYV')"><i class="bi bi-file-earmark-text"></i> 洞察报告</button></td></tr>
-                                    <tr style="background:#f0fff4;"><td>B0DZH6LQ3M <a href="https://www.amazon.com/dp/B0DZH6LQ3M" target="_blank" title="跳转亚马逊" style="color:var(--primary);"><i class="bi bi-box-arrow-up-right"></i></a></td><td>IASEAHK</td><td>—</td><td>#20</td><td><span style="padding:2px 6px;border-radius:3px;font-size:10px;background:#f6ffed;color:#389e0d;cursor:help;" title="新进Top100且评分低(4.1)，产品有缺陷但市场接受=可改进开品">新品低评</span></td><td>4.1</td><td>$52.99</td><td><button class="ant-btn ant-btn-sm" onclick="openInsightModal('B0DZH6LQ3M')"><i class="bi bi-file-earmark-text"></i> 洞察报告</button></td></tr>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                </div>
+            <!-- 公共统计 -->
+            <div style="display:grid;grid-template-columns:repeat(6,1fr);gap:10px;margin-bottom:16px;">
+                <div style="text-align:center;padding:12px 8px;background:#f8faff;border-radius:6px;border:1px solid #e8e8e8;"><div style="font-size:18px;font-weight:700;color:var(--primary);">43</div><div style="font-size:10px;color:var(--text-secondary);">稳定在榜</div></div>
+                <div style="text-align:center;padding:12px 8px;background:#f0fff4;border-radius:6px;border:1px solid #e8e8e8;"><div style="font-size:18px;font-weight:700;color:#52c41a;">57</div><div style="font-size:10px;color:var(--text-secondary);">新品进入</div></div>
+                <div style="text-align:center;padding:12px 8px;background:#fff8f0;border-radius:6px;border:1px solid #e8e8e8;"><div style="font-size:18px;font-weight:700;color:#fa541c;">57%</div><div style="font-size:10px;color:var(--text-secondary);">新品进入率</div></div>
+                <div style="text-align:center;padding:12px 8px;background:#f9f0ff;border-radius:6px;border:1px solid #e8e8e8;"><div style="font-size:18px;font-weight:700;color:#722ed1;">68%</div><div style="font-size:10px;color:var(--text-secondary);">中国卖家占比</div></div>
+                <div style="text-align:center;padding:12px 8px;background:#fffbe6;border-radius:6px;border:1px solid #e8e8e8;"><div style="font-size:18px;font-weight:700;color:#d48806;">1:3.2</div><div style="font-size:10px;color:var(--text-secondary);">搜索供需比</div></div>
+                <div style="text-align:center;padding:12px 8px;background:#e6f4ff;border-radius:6px;border:1px solid #e8e8e8;"><div style="font-size:18px;font-weight:700;color:#0958d9;">42%</div><div style="font-size:10px;color:var(--text-secondary);">有品牌占比</div></div>
             </div>
-            <!-- Listing Detail -->
-            <div id="detail-listing-competitors" style="display:none;">
-                <div class="ant-card" style="margin-bottom:16px;">
-                    <div class="ant-card-head" style="display:flex;justify-content:space-between;align-items:center;">
-                        <span>刊登链接监控 · 坐垫核心竞品</span>
-                        <button class="ant-btn ant-btn-sm" onclick="hideMonitorDetail()"><i class="bi bi-x"></i> 收起</button>
-                    </div>
-                    <div class="ant-card-body" style="padding:12px;">
-                        <table class="ant-table">
-                            <thead><tr><th>ASIN</th><th>商品标题</th><th>当前BSR</th><th>价格</th><th>评分</th><th>评论数</th><th>状态</th><th>操作</th></tr></thead>
+            <!-- ASIN 详细表 -->
+            <div class="ant-card">
+                <div class="ant-card-head"><span>异动 ASIN 明细（4月→5月）</span></div>
+                <div class="ant-card-body" style="padding:12px;">
+                    <div style="max-height:400px;overflow-y:auto;">
+                        <table class="ant-table" style="font-size:12px;">
+                            <thead><tr><th>ASIN</th><th>品牌</th><th>4月排名</th><th>5月排名</th><th>异常类型</th><th>评分</th><th>价格</th><th>操作</th></tr></thead>
                             <tbody>
-                                <tr><td>B0G4GTTN61</td><td style="max-width:200px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;">MIULEE Beige Outdoor Chair Cushions Set of 2</td><td>#6</td><td>$35.99</td><td>4.3</td><td>63</td><td><span style="color:#cf1322;font-size:11px;"><i class="bi bi-arrow-up-circle"></i> 排名飙升</span></td><td><button class="ant-btn ant-btn-sm" onclick="openReviewModal('B0G4GTTN61')"><i class="bi bi-chat-text"></i> 评论</button></td></tr>
-                                <tr><td>B0DNVDYZWT</td><td style="max-width:200px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;">MTMR Waterproof Outdoor Chair Cushions Set of 2</td><td>#32</td><td>$46.99</td><td>4.1</td><td>283</td><td><span style="color:#fa541c;font-size:11px;"><i class="bi bi-exclamation-circle"></i> 褪色差评增</span></td><td><button class="ant-btn ant-btn-sm" onclick="openReviewModal('B0DNVDYZWT')"><i class="bi bi-chat-text"></i> 评论</button></td></tr>
-                                <tr><td>B0DZH6LQ3M</td><td style="max-width:200px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;">IASEAHK Outdoor Chair Cushions 24x24</td><td>#20</td><td>$52.99</td><td>4.1</td><td>260</td><td><span style="color:#52c41a;font-size:11px;"><i class="bi bi-check-circle"></i> 新品稳升</span></td><td><button class="ant-btn ant-btn-sm" onclick="openReviewModal('B0DZH6LQ3M')"><i class="bi bi-chat-text"></i> 评论</button></td></tr>
-                                <tr><td>B0D66RP3R5</td><td style="max-width:200px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;">IPYNBAP Outdoor Chair Cushions Set of 4</td><td>#2</td><td>$49.98</td><td>4.3</td><td>1469</td><td><span style="color:#52c41a;font-size:11px;"><i class="bi bi-check-circle"></i> 稳定头部</span></td><td><button class="ant-btn ant-btn-sm" onclick="openReviewModal('B0D66RP3R5')"><i class="bi bi-chat-text"></i> 评论</button></td></tr>
-                                <tr><td>B0DQP37YND</td><td style="max-width:200px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;">Summsun Outdoor Bench Cushion Waterproof</td><td>#3</td><td>$26.99</td><td>4.6</td><td>615</td><td><span style="color:#cf1322;font-size:11px;"><i class="bi bi-arrow-up-circle"></i> 排名飙升</span></td><td><button class="ant-btn ant-btn-sm" onclick="openReviewModal('B0DQP37YND')"><i class="bi bi-chat-text"></i> 评论</button></td></tr>
+                                <tr><td>B0G4GTTN61 <a href="https://www.amazon.com/dp/B0G4GTTN61" target="_blank" style="color:var(--primary);"><i class="bi bi-box-arrow-up-right"></i></a></td><td>MIULEE</td><td>#72</td><td>#6</td><td><span style="padding:2px 6px;border-radius:3px;font-size:10px;background:#fff2f0;color:#cf1322;">爆品信号</span></td><td>4.3</td><td>$35.99</td><td><button class="ant-btn ant-btn-sm" onclick="openInsightModal('B0G4GTTN61')" title="评论洞察"><i class="bi bi-chat-text"></i></button> <button class="ant-btn ant-btn-sm" title="趋势洞察"><i class="bi bi-graph-up-arrow"></i></button></td></tr>
+                                <tr><td>B0DQP33H1J <a href="https://www.amazon.com/dp/B0DQP33H1J" target="_blank" style="color:var(--primary);"><i class="bi bi-box-arrow-up-right"></i></a></td><td>Summsun</td><td>#70</td><td>#25</td><td><span style="padding:2px 6px;border-radius:3px;font-size:10px;background:#fff2f0;color:#cf1322;">快速攀升</span></td><td>4.3</td><td>$26.99</td><td><button class="ant-btn ant-btn-sm" onclick="openInsightModal('B0DQP33H1J')" title="评论洞察"><i class="bi bi-chat-text"></i></button> <button class="ant-btn ant-btn-sm" title="趋势洞察"><i class="bi bi-graph-up-arrow"></i></button></td></tr>
+                                <tr><td>B0DNVDYZWT <a href="https://www.amazon.com/dp/B0DNVDYZWT" target="_blank" style="color:var(--primary);"><i class="bi bi-box-arrow-up-right"></i></a></td><td>MTMR</td><td>#75</td><td>#32</td><td><span style="padding:2px 6px;border-radius:3px;font-size:10px;background:#fffbe6;color:#d48806;">低评高升</span></td><td>4.1</td><td>$46.99</td><td><button class="ant-btn ant-btn-sm" onclick="openInsightModal('B0DNVDYZWT')" title="评论洞察"><i class="bi bi-chat-text"></i></button> <button class="ant-btn ant-btn-sm" title="趋势洞察"><i class="bi bi-graph-up-arrow"></i></button></td></tr>
+                                <tr><td>B0DQP37YND <a href="https://www.amazon.com/dp/B0DQP37YND" target="_blank" style="color:var(--primary);"><i class="bi bi-box-arrow-up-right"></i></a></td><td>Summsun</td><td>#29</td><td>#3</td><td><span style="padding:2px 6px;border-radius:3px;font-size:10px;background:#fff2f0;color:#cf1322;">低价冲榜</span></td><td>4.6</td><td>$26.99</td><td><button class="ant-btn ant-btn-sm" onclick="openInsightModal('B0DQP37YND')" title="评论洞察"><i class="bi bi-chat-text"></i></button> <button class="ant-btn ant-btn-sm" title="趋势洞察"><i class="bi bi-graph-up-arrow"></i></button></td></tr>
+                                <tr style="background:#fff8f8;"><td>B0DSGD9796 <a href="https://www.amazon.com/dp/B0DSGD9796" target="_blank" style="color:var(--primary);"><i class="bi bi-box-arrow-up-right"></i></a></td><td>—</td><td>#7</td><td>#54</td><td><span style="padding:2px 6px;border-radius:3px;font-size:10px;background:#e6f4ff;color:#1677ff;">断崖下跌</span></td><td>4.5</td><td>$39.99</td><td><button class="ant-btn ant-btn-sm" onclick="openInsightModal('B0DSGD9796')" title="评论洞察"><i class="bi bi-chat-text"></i></button> <button class="ant-btn ant-btn-sm" title="趋势洞察"><i class="bi bi-graph-up-arrow"></i></button></td></tr>
+                                <tr style="background:#fff8f8;"><td>B0DZH9LNN2 <a href="https://www.amazon.com/dp/B0DZH9LNN2" target="_blank" style="color:var(--primary);"><i class="bi bi-box-arrow-up-right"></i></a></td><td>—</td><td>#39</td><td>#88</td><td><span style="padding:2px 6px;border-radius:3px;font-size:10px;background:#e6f4ff;color:#1677ff;">持续衰退</span></td><td>4.3</td><td>$44.99</td><td><button class="ant-btn ant-btn-sm" onclick="openInsightModal('B0DZH9LNN2')" title="评论洞察"><i class="bi bi-chat-text"></i></button> <button class="ant-btn ant-btn-sm" title="趋势洞察"><i class="bi bi-graph-up-arrow"></i></button></td></tr>
+                                <tr style="background:#f0fff4;"><td>B0FZSTKFYV <a href="https://www.amazon.com/dp/B0FZSTKFYV" target="_blank" style="color:var(--primary);"><i class="bi bi-box-arrow-up-right"></i></a></td><td>idee-home</td><td>—</td><td>#11</td><td><span style="padding:2px 6px;border-radius:3px;font-size:10px;background:#f6ffed;color:#389e0d;">新品入榜</span></td><td>4.4</td><td>$49.99</td><td><button class="ant-btn ant-btn-sm" onclick="openInsightModal('B0FZSTKFYV')" title="评论洞察"><i class="bi bi-chat-text"></i></button> <button class="ant-btn ant-btn-sm" title="趋势洞察"><i class="bi bi-graph-up-arrow"></i></button></td></tr>
+                                <tr style="background:#f0fff4;"><td>B0DZH6LQ3M <a href="https://www.amazon.com/dp/B0DZH6LQ3M" target="_blank" style="color:var(--primary);"><i class="bi bi-box-arrow-up-right"></i></a></td><td>IASEAHK</td><td>—</td><td>#20</td><td><span style="padding:2px 6px;border-radius:3px;font-size:10px;background:#f6ffed;color:#389e0d;">新品低评</span></td><td>4.1</td><td>$52.99</td><td><button class="ant-btn ant-btn-sm" onclick="openInsightModal('B0DZH6LQ3M')" title="评论洞察"><i class="bi bi-chat-text"></i></button> <button class="ant-btn ant-btn-sm" title="趋势洞察"><i class="bi bi-graph-up-arrow"></i></button></td></tr>
                             </tbody>
                         </table>
                     </div>
                 </div>
             </div>
-        </div>
+        </div><!-- end insight-panel-bsr -->
+
+        <!-- Tab Panel: 刊登链接监控 -->
+        <div id="insight-panel-listing" style="display:none;">
+            <!-- 监控选择器 -->
+            <div style="display:flex;gap:12px;margin-bottom:16px;align-items:center;">
+                <select class="ant-input" style="width:260px;font-size:12px;">
+                    <option>坐垫核心竞品 ASIN（张三 · 团队）</option>
+                    <option>电钻头部链接（李四 · 我的）</option>
+                </select>
+                <span style="font-size:11px;color:var(--text-secondary);">US站 · 5个ASIN · 每12小时 · 最近更新：2026-06-03</span>
+            </div>
+            <!-- 公共统计 -->
+            <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:16px;">
+                <div style="text-align:center;padding:12px 8px;background:#f8faff;border-radius:6px;border:1px solid #e8e8e8;"><div style="font-size:18px;font-weight:700;color:var(--primary);">5</div><div style="font-size:10px;color:var(--text-secondary);">监控ASIN</div></div>
+                <div style="text-align:center;padding:12px 8px;background:#fff8f0;border-radius:6px;border:1px solid #e8e8e8;"><div style="font-size:18px;font-weight:700;color:#fa541c;">2</div><div style="font-size:10px;color:var(--text-secondary);">排名异动</div></div>
+                <div style="text-align:center;padding:12px 8px;background:#fffbe6;border-radius:6px;border:1px solid #e8e8e8;"><div style="font-size:18px;font-weight:700;color:#d48806;">1</div><div style="font-size:10px;color:var(--text-secondary);">差评告警</div></div>
+                <div style="text-align:center;padding:12px 8px;background:#f0fff4;border-radius:6px;border:1px solid #e8e8e8;"><div style="font-size:18px;font-weight:700;color:#52c41a;">3</div><div style="font-size:10px;color:var(--text-secondary);">状态正常</div></div>
+            </div>
+            <!-- ASIN 详细表 -->
+            <div class="ant-card">
+                <div class="ant-card-head"><span>链接详情</span></div>
+                <div class="ant-card-body" style="padding:12px;">
+                    <table class="ant-table" style="font-size:12px;">
+                        <thead><tr><th>ASIN</th><th>商品标题</th><th>当前BSR</th><th>价格</th><th>评分</th><th>评论数</th><th>状态</th><th>操作</th></tr></thead>
+                        <tbody>
+                            <tr><td>B0G4GTTN61 <a href="https://www.amazon.com/dp/B0G4GTTN61" target="_blank" style="color:var(--primary);"><i class="bi bi-box-arrow-up-right"></i></a></td><td style="max-width:200px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;">MIULEE Beige Outdoor Chair Cushions Set of 2</td><td>#6</td><td>$35.99</td><td>4.3</td><td>63</td><td><span style="color:#cf1322;font-size:11px;"><i class="bi bi-arrow-up-circle"></i> 排名飙升</span></td><td><button class="ant-btn ant-btn-sm" onclick="openInsightModal('B0G4GTTN61')" title="评论洞察"><i class="bi bi-chat-text"></i></button> <button class="ant-btn ant-btn-sm" title="趋势洞察"><i class="bi bi-graph-up-arrow"></i></button></td></tr>
+                            <tr><td>B0DNVDYZWT <a href="https://www.amazon.com/dp/B0DNVDYZWT" target="_blank" style="color:var(--primary);"><i class="bi bi-box-arrow-up-right"></i></a></td><td style="max-width:200px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;">MTMR Waterproof Outdoor Chair Cushions Set of 2</td><td>#32</td><td>$46.99</td><td>4.1</td><td>283</td><td><span style="color:#fa541c;font-size:11px;"><i class="bi bi-exclamation-circle"></i> 褪色差评增</span></td><td><button class="ant-btn ant-btn-sm" onclick="openInsightModal('B0DNVDYZWT')" title="评论洞察"><i class="bi bi-chat-text"></i></button> <button class="ant-btn ant-btn-sm" title="趋势洞察"><i class="bi bi-graph-up-arrow"></i></button></td></tr>
+                            <tr><td>B0DZH6LQ3M <a href="https://www.amazon.com/dp/B0DZH6LQ3M" target="_blank" style="color:var(--primary);"><i class="bi bi-box-arrow-up-right"></i></a></td><td style="max-width:200px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;">IASEAHK Outdoor Chair Cushions 24x24</td><td>#20</td><td>$52.99</td><td>4.1</td><td>260</td><td><span style="color:#52c41a;font-size:11px;"><i class="bi bi-check-circle"></i> 新品稳升</span></td><td><button class="ant-btn ant-btn-sm" onclick="openInsightModal('B0DZH6LQ3M')" title="评论洞察"><i class="bi bi-chat-text"></i></button> <button class="ant-btn ant-btn-sm" title="趋势洞察"><i class="bi bi-graph-up-arrow"></i></button></td></tr>
+                            <tr><td>B0D66RP3R5 <a href="https://www.amazon.com/dp/B0D66RP3R5" target="_blank" style="color:var(--primary);"><i class="bi bi-box-arrow-up-right"></i></a></td><td style="max-width:200px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;">IPYNBAP Outdoor Chair Cushions Set of 4</td><td>#2</td><td>$49.98</td><td>4.3</td><td>1469</td><td><span style="color:#52c41a;font-size:11px;"><i class="bi bi-check-circle"></i> 稳定头部</span></td><td><button class="ant-btn ant-btn-sm" onclick="openInsightModal('B0D66RP3R5')" title="评论洞察"><i class="bi bi-chat-text"></i></button> <button class="ant-btn ant-btn-sm" title="趋势洞察"><i class="bi bi-graph-up-arrow"></i></button></td></tr>
+                            <tr><td>B0DQP37YND <a href="https://www.amazon.com/dp/B0DQP37YND" target="_blank" style="color:var(--primary);"><i class="bi bi-box-arrow-up-right"></i></a></td><td style="max-width:200px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;">Summsun Outdoor Bench Cushion Waterproof</td><td>#3</td><td>$26.99</td><td>4.6</td><td>615</td><td><span style="color:#cf1322;font-size:11px;"><i class="bi bi-arrow-up-circle"></i> 排名飙升</span></td><td><button class="ant-btn ant-btn-sm" onclick="openInsightModal('B0DQP37YND')" title="评论洞察"><i class="bi bi-chat-text"></i></button> <button class="ant-btn ant-btn-sm" title="趋势洞察"><i class="bi bi-graph-up-arrow"></i></button></td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div><!-- end insight-panel-listing -->
+
+        <!-- Tab Panel: 监控管理 -->
+        <div id="insight-panel-manage" style="display:none;">
+            <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:14px;">
+                <span style="font-size:13px;color:var(--text-secondary);">每人最多创建 5 个监控任务（当前已用 <strong>3</strong>/5）</span>
+                <button class="ant-btn" onclick="openCreateMonitorModal()" style="background:var(--primary);color:#fff;border-color:var(--primary);font-size:12px;"><i class="bi bi-plus-circle"></i> 新建监控</button>
+            </div>
+            <table class="ant-table" style="font-size:12px;">
+                <thead><tr><th>监控名称</th><th>类型</th><th>范围</th><th>频率</th><th>归属</th><th>本月异动</th><th>状态</th><th>操作</th></tr></thead>
+                <tbody>
+                    <tr>
+                        <td style="font-weight:600;">坐垫类目 Top100 监控</td>
+                        <td><span style="padding:2px 6px;border-radius:3px;font-size:10px;background:#e6f4ff;color:var(--primary);">BSR榜单</span></td>
+                        <td>US站 · Cushions</td>
+                        <td>每日</td>
+                        <td><span style="padding:2px 6px;border-radius:3px;font-size:10px;background:#f6ffed;color:#389e0d;">全局</span></td>
+                        <td style="font-weight:700;color:#cf1322;">57</td>
+                        <td><span style="color:#52c41a;"><i class="bi bi-circle-fill" style="font-size:6px;vertical-align:middle;"></i> 运行中</span></td>
+                        <td><button class="ant-btn ant-btn-sm"><i class="bi bi-pencil"></i></button> <button class="ant-btn ant-btn-sm" style="color:var(--error);border-color:var(--error);"><i class="bi bi-pause"></i></button></td>
+                    </tr>
+                    <tr>
+                        <td style="font-weight:600;">坐垫核心竞品 ASIN 监控</td>
+                        <td><span style="padding:2px 6px;border-radius:3px;font-size:10px;background:#fff2f0;color:#cf1322;">刊登链接</span></td>
+                        <td>US站 · 5个ASIN</td>
+                        <td>每12小时</td>
+                        <td><span style="padding:2px 6px;border-radius:3px;font-size:10px;background:#fffbe6;color:#d48806;">团队</span></td>
+                        <td style="font-weight:700;color:#fa541c;">3</td>
+                        <td><span style="color:#52c41a;"><i class="bi bi-circle-fill" style="font-size:6px;vertical-align:middle;"></i> 运行中</span></td>
+                        <td><button class="ant-btn ant-btn-sm"><i class="bi bi-pencil"></i></button> <button class="ant-btn ant-btn-sm" style="color:var(--error);border-color:var(--error);"><i class="bi bi-pause"></i></button></td>
+                    </tr>
+                    <tr>
+                        <td style="font-weight:600;">家居收纳 Top50 新品监控</td>
+                        <td><span style="padding:2px 6px;border-radius:3px;font-size:10px;background:#e6f4ff;color:var(--primary);">BSR榜单</span></td>
+                        <td>US站 · Home Storage</td>
+                        <td>每周</td>
+                        <td><span style="padding:2px 6px;border-radius:3px;font-size:10px;background:#f0f0f0;color:#666;">我的</span></td>
+                        <td style="font-weight:700;color:#1677ff;">12</td>
+                        <td><span style="color:#52c41a;"><i class="bi bi-circle-fill" style="font-size:6px;vertical-align:middle;"></i> 运行中</span></td>
+                        <td><button class="ant-btn ant-btn-sm"><i class="bi bi-pencil"></i></button> <button class="ant-btn ant-btn-sm" style="color:var(--error);border-color:var(--error);"><i class="bi bi-trash"></i></button></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div><!-- end insight-panel-manage -->
+
       </div><!-- end page-review-mining -->
 
       <!-- PAGE: 痛点挖掘 -->
@@ -1908,6 +1939,26 @@
                 <button class="ant-btn" onclick="closePresetModal()">取消</button>
                 <button class="ant-btn ant-btn-primary" onclick="savePreset()"><i class="bi bi-check-circle"></i> 保存方案</button>
             </div>
+        </div>
+    </div>
+</div>
+
+<!-- Push Log Modal -->
+<div id="pushLogModal" onclick="if(event.target===this)closePushLogModal()" style="display:none;position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,0.45);z-index:1000;align-items:center;justify-content:center;">
+    <div style="background:#fff;border-radius:8px;width:560px;max-height:80vh;overflow-y:auto;box-shadow:0 6px 16px rgba(0,0,0,.12);">
+        <div style="padding:16px 24px;border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;">
+            <h3 style="margin:0;font-size:16px;"><i class="bi bi-journal-text" style="color:var(--primary);"></i> 推送日志</h3>
+            <button class="ant-btn ant-btn-sm" onclick="closePushLogModal()"><i class="bi bi-x-lg"></i></button>
+        </div>
+        <div style="padding:24px;">
+            <table class="ant-table" style="font-size:12px;">
+                <thead><tr><th>时间</th><th>操作人</th><th>动作</th><th>结果</th><th>详情</th></tr></thead>
+                <tbody>
+                    <tr><td>2026-05-20 14:32:05</td><td>系统</td><td>自动推送</td><td style="color:#389e0d;">成功</td><td>已写入ERP产品库，产品ID: PRD-20260520-0142</td></tr>
+                    <tr><td>2026-05-20 14:30:18</td><td>系统</td><td>自动推送</td><td style="color:#cf1322;">失败</td><td>ERP接口返回超时(30s)，HTTP 504</td></tr>
+                    <tr><td>2026-05-20 10:15:00</td><td>张三</td><td>手动推送</td><td style="color:#cf1322;">失败</td><td>字段校验失败：缺少必填项「产品重量」</td></tr>
+                </tbody>
+            </table>
         </div>
     </div>
 </div>
