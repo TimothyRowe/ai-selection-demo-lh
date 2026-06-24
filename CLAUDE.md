@@ -42,18 +42,21 @@ AI 辅助选品 → 结果池 → 开发专员自主推送 → ERP 产品库 →
 
 ```
 ai-selection/
-├── CLAUDE.md              ← 本文件
-├── docs/
-│   ├── decisions/         ← 已确认的决策记录
-│   ├── data-sources/      ← 数据源接口文档
-│   ├── requirements/      ← PRD / 需求文档
-│   └── roadmap.md         ← 分期规划（v1.0/v1.1/v2.0/v3.0）
-├── demo/                  ← 前端原型 demo（HTML/JS）
+├── CLAUDE.md              ← 本文件（项目指令）
+├── index.html             ← GitHub Pages 入口
+├── demo/                  ← 产品 Demo 原型
 │   ├── selection-demo.html
 │   └── selection-app.js
-└── server/                ← Java 后端代码（架构师+后端同事维护）
-    ├── pom.xml
-    └── src/
+└── docs/                  ← 文档（需求管理主体）
+    ├── README.md          ← 项目总览
+    ├── project-proposal.md ← 立项方案
+    ├── roadmap.md         ← 分期规划
+    ├── data-sources/      ← 数据源接口文档
+    ├── decisions/         ← 已确认的决策记录
+    └── requirements/      ← 后端研发需求入口
+        ├── README.md      ← code model 阅读入口
+        ├── changelog.md   ← 需求变更日志
+        └── api-design/    ← 接口规范
 ```
 
 ## Git
